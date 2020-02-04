@@ -1,0 +1,18 @@
+#header-wrap {
+  background-color: #4829B2;
+  ul.navbar-nav {
+    a {
+      cursor: pointer;
+    }
+    .dropdown-toggle, .nav-link {
+      &:hover {
+        color: rgba(255,255,255,.75);
+      }
+    }
+    #header-auth-item {
+      .btn.disabled {
+        opacity: 1;
+      }
+    }
+  }
+}

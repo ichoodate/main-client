@@ -1,0 +1,15 @@
+<div class="form-group input-group btn-group">
+  <select
+    [formControl]="form.get('min')"
+    (change)="minChange()"
+    >
+    <option *ngFor="let min of minList" [value]="min">{{min}}</option>
+  </select>
+
+  <select
+    [formControl]="form.get('statureRange')"
+    [compareWith]="compareWith"
+  >
+    <option *ngFor="let statureRange of statureRangeList" [ngValue]="statureRange">{{statureRange.getAttrs().max}}</option>
+  </select>
+</div>

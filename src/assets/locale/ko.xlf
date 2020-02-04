@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="en" datatype="plaintext" original="ng2.template">
+    <body>
+      <trans-unit id="cancel-btn" datatype="html">
+        <target>취소</target>
+      </trans-unit>
+      <trans-unit id="change-btn" datatype="html">
+        <target>변경</target>
+      </trans-unit>
+      <trans-unit id="confirm-btn" datatype="html">
+        <target>확인</target>
+      </trans-unit>
+      <trans-unit id="complete-btn" datatype="html">
+        <target>완료</target>
+      </trans-unit>
+      <trans-unit id="edit-btn" datatype="html">
+        <target>수정</target>
+      </trans-unit>
+      <trans-unit id="profile-section-container-label" datatype="html">
+        <target>{partInfo.label, select, birth {생일} career {직업} name {이름} nationality {국적} religion {종교} residence {거주지} stature {신장} weight {몸무게} age-range {나이} }</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

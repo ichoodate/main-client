@@ -1,0 +1,6 @@
+<div *ngIf="statureRange">
+  {{statureRange.getAttrs().min}} ~ {{statureRange.getAttrs().max}}
+</div>
+<div *ngIf="!statureRange">
+  statureRange is not exist
+</div>

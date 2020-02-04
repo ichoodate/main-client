@@ -1,0 +1,6 @@
+<div class="form-group input-group btn-group">
+    <div *ngFor="let hobby of hobbyList;let i = index">
+      {{hobby.getAttrs().type}}
+      <input type="checkbox" [checked]="has(hobby)" [formControl]="form.get('hobbies').at(i)" />
+    </div>
+</div>

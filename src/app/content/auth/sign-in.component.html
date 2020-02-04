@@ -1,0 +1,16 @@
+<form [formGroup]="form">
+  <label>
+    Email:
+    <input type="text" formControlName="email">
+  </label>
+  <label>
+    Password:
+    <input type="password" formControlName="password">
+  </label>
+  <button type="button" (click)="signIn()" class="btn btn-primary">
+    Sign In
+  </button>
+  <button type="button" class="btn btn-primary" routerLink="/auth/sign-up">
+    Sign Up
+  </button>
+</form>

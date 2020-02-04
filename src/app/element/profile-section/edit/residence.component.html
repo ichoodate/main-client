@@ -1,0 +1,23 @@
+<div class="form-group input-group btn-group">
+  <select
+    [formControl]="form.get('residenceCountry')"
+    [compareWith]="compareWith"
+    (change)="countryChange()"
+  >
+    <option *ngFor="let country of countryList"
+      [ngValue]="country.getRelation('residence')"
+    >
+      {{country.getAttrs().name}}
+    </option>
+  </select>
+  <select
+    [formControl]="form.get('residenceState')"
+    [compareWith]="compareWith"
+  >
+    <option *ngFor="let state of stateList"
+      [ngValue]="state.getRelation('residence')"
+    >
+      {{state.getAttrs().name}}
+    </option>
+  </select>
+</div>

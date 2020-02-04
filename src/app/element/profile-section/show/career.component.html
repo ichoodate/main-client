@@ -1,0 +1,6 @@
+<div *ngFor="let career of careers">
+  {{career.getAttrs().name}}
+</div>
+<div *ngIf="!careers">
+  careers is not exist
+</div>

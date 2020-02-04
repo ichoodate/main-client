@@ -1,0 +1,15 @@
+<div class="bg-primary text-white">
+  <div class="container jumbotron rounded-0 bg-primary">
+    <h1 class="display-5 mb-4">매칭 이상형 프로필</h1>
+  </div>
+</div>
+<div class="bg-light">
+  <div class="container">
+    <div class="row">
+      <profile-section-container class="col-12 col-sm-6 col-md-4"
+        *ngFor="let label of getLabels();"
+        [label]="label" [data]="data[label]" [profileType]="profileType"
+      >
+      </profile-section-container>
+  </div>
+</div>

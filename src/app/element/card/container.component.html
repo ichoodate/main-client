@@ -1,0 +1,7 @@
+<div id="card-container-wrap" class="container-fluid">
+  <div class="row justify-content-center">
+    <div class="card-outer p-3" *ngFor="let user of users">
+      <card [user]="user"></card>
+    </div>
+  </div>
+</div>

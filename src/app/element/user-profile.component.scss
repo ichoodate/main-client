@@ -1,0 +1,10 @@
+:host .jumbotron ::ng-deep .profile-section .border {
+  border:solid 0px !important;
+}
+
+.profile-section {
+  padding-left: 0;
+  padding-right: 0;
+  max-width: 380px;
+}
+
