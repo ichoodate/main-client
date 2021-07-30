@@ -28,7 +28,7 @@ export class AuthGuardService implements CanActivate, CanActivateChild, CanLoad 
   }
 
   public requestedSignIn$(): Observable<boolean> {
-    console.log('requestedSignIn$');
+
     let observ = this.auth.isSignIn$();
 
     observ.subscribe((result: boolean) => {
