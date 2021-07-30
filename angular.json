@@ -33,29 +33,48 @@
           },
           "configurations": {
             "production": {
-              "fileReplacements": [
-                {
-                  "replace": "src/environments/environment.ts",
-                  "with": "src/environments/environment.prod.ts"
-                }
-              ],
-              "optimization": true,
-              "outputHashing": "all",
-              "sourceMap": false,
-              "extractCss": true,
-              "namedChunks": false,
-              "aot": true, // true
-              "extractLicenses": true,
-              "vendorChunk": false,
-              "buildOptimizer": true, // true
-              "watch": false, // false
+              "aot": true,
               "budgets": [
                 {
                   "type": "initial",
                   "maximumWarning": "2mb",
                   "maximumError": "5mb"
                 }
-              ]
+              ],
+              "buildOptimizer": true,
+              "extractCss": true,
+              "extractLicenses": true,
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.prod.ts"
+                }
+              ],
+              "namedChunks": false,
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "vendorChunk": false,
+              "watch": false
+            },
+            "test": {
+              "aot": false,
+              "buildOptimizer": false,
+              "budgets": [],
+              "extractCss": false,
+              "extractLicenses": false,
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.test.ts"
+                }
+              ],
+              "namedChunks": true,
+              "optimization": false,
+              "outputHashing": "none",
+              "sourceMap": true,
+              "vendorChunk": true,
+              "watch": true
             }
           }
         },
@@ -67,6 +86,9 @@
           "configurations": {
             "production": {
               "browserTarget": "default:build:production"
+            },
+            "test": {
+              "browserTarget": "default:build:test"
             }
           }
         },

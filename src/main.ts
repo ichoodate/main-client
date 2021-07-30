@@ -9,7 +9,7 @@ if (environment.production) {
 
 platformBrowserDynamic().bootstrapModule(AppModule, {
   providers: [
-    {provide: TRANSLATIONS, useValue: require(`raw-loader!./assets/locale/ko.xlf`)},
+    {provide: TRANSLATIONS, useValue: require(`raw-loader!./assets/locale/ko.xlf`).default},
     {provide: TRANSLATIONS_FORMAT, useValue: 'xlf'}
   ]
 }).catch(err => console.error(err));
