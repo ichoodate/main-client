@@ -43,7 +43,7 @@ export class ProfileSectionEditHobbyComponent extends ProfileSectionEditComponen
   }
 
   public submit$() {
-    console.log(this.form.get('hobbies').value);
+
     const hobbies = _.chain(this.form.get('hobbies').value).pickBy().keys().map((i: number) => this.hobbyList[i]).value();
 
     return HttpService.api().post<Hobby[]>(this.profileType+'-keyword/hobbies', {

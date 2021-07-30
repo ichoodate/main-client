@@ -19,7 +19,7 @@ export class AuthSignUpContentComponent {
   });
 
   constructor(auth: AuthService, route: ActivatedRoute) {
-    console.log(route.snapshot.data);
+
     this.auth = auth;
   }
 

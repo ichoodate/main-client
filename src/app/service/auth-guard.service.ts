@@ -13,20 +13,17 @@ export class AuthGuardService implements CanActivate, CanActivateChild, CanLoad 
   }
 
   public canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): any {
-    console.log('canActivate');
+
     return this.requestedSignIn$();
   }
 
   public canActivateChild(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): any {
 
-    // console.log('canActivateChild', this.requestedSignIn$());
-    return true;
     return this.requestedSignIn$();
   }
 
   public canLoad(route: Route): any {
 
-    console.log('canLoad');
     return this.requestedSignIn$();
   }
 

@@ -19,11 +19,10 @@ export class AuthSignInContentComponent {
   constructor(auth: AuthService, route: ActivatedRoute ) {
 
     this.auth = auth;
-    console.log(route.snapshot.data);
   }
 
   public signIn() {
-    console.log(this.form.value);
+
     this.auth.signIn(this.form.value);
   }
 

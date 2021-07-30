@@ -68,7 +68,7 @@ export class AuthService {
         return this.isSignIn$();
       })
     ).subscribe((result: boolean) => {
-      console.log(result);
+
       // if ( result ) {
       //   this.router.navigate(['/']);
       // }

@@ -10,7 +10,6 @@ export class AppComponent {
 
   public constructor(route: ActivatedRoute) {
 
-    console.log(route.snapshot.data);
   }
 
 }
