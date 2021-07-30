@@ -1,10 +1,9 @@
 import * as _ from 'lodash';
-import { Injectable } from '@angular/core';
-import { HttpRequest, HttpHandler, HttpEvent, HttpInterceptor, HttpResponse } from '@angular/common/http';
+import { Inject, Injectable, Injector } from '@angular/core';
+import { HttpRequest, HttpHandler, HttpEvent, HttpInterceptor, HttpResponse, HttpErrorResponse } from '@angular/common/http';
+import { map, filter, switchMap } from 'rxjs/operators';
 import { Model } from 'src/app/model';
-import { User } from 'src/app/model/user';
-import { Observable, from, forkJoin, of, ObservableInput } from 'rxjs';
-import { map, switchMap } from 'rxjs/operators';
+import { Observable, from, forkJoin, of, ObservableInput, throwError } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -14,42 +13,38 @@ export class ModelifyApiInterceptor implements HttpInterceptor {
   public intercept(request: HttpRequest<any>, next: HttpHandler): any {
 
     return next.handle(request).pipe(
-      switchMap((event: HttpEvent<any>): any => {
+      filter((event: HttpEvent<any>) => event instanceof HttpResponse ),
+      map((response: HttpResponse<any>): any => {
 
-        let response = <HttpResponse<any>>event;
         let body = response.body;
 
         if ( typeof body == 'undefined' ) {
-
-          return forkJoin(of(response));
+          return response;
         }
 
         if ( typeof body.errors != 'undefined' ) {
-
           for (let error in body.errors) {
             alert(JSON.stringify(body.errors[error]));
           }
 
-          return forkJoin(of(response));
+          throw new Error(JSON.stringify(body.errors));
         }
 
-        if ( typeof body.result != 'object' ) {
-
-          return forkJoin(of(response));
-        }
-
-        return forkJoin(of(response), of(this.objectify(body.result)));
-      }),
-      map(([response, result]) => {
-
-        if ( typeof result != 'undefined' ) {
-
+        if ( typeof body.result != 'object' || !body.result ) {
           return response.clone({
-            body: result
+            body: body.result
           });
         }
 
-        return response;
+        if ( typeof body.result.data != 'undefined' ) {
+          body.result.data = this.objectify(body.result.data);
+        } else {
+          body.result = this.objectify(body.result);
+        }
+
+        return response.clone({
+          body: body.result
+        });
       })
     );
   }
@@ -72,7 +67,7 @@ export class ModelifyApiInterceptor implements HttpInterceptor {
       });
 
       _.each(relations, (value:any, key:any) => {
-        model.setRelation(key, this.objectify(value));
+        model.setRelation(key, value == null ? value : this.objectify(value));
       });
 
       return model;
