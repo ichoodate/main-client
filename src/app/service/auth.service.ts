@@ -69,9 +69,9 @@ export class AuthService {
       })
     ).subscribe((result: boolean) => {
 
-      // if ( result ) {
-      //   this.router.navigate(['/']);
-      // }
+      if ( result ) {
+        window.location.reload();
+      }
     });
   }
 
@@ -82,7 +82,8 @@ export class AuthService {
 
       this.signedIn = false;
       this.authUser = null;
-      this.router.navigate(['/']);
+
+      window.location.reload();
     });
   }
 
