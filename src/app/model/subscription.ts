@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { HttpParams } from '@angular/common/http'
-import { Observable } from 'rxjs';
 import { Model } from 'src/app/model';
 import { User } from 'src/app/model/user';
 import { Payment } from 'src/app/model/payment';

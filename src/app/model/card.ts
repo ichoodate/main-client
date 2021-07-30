@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { HttpParams } from '@angular/common/http'
-import { Observable } from 'rxjs';
 import { Model } from 'src/app/model';
 import { CardGroup } from 'src/app/model/card-group';
 import { Match } from 'src/app/model/match';
