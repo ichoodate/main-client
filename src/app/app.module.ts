@@ -37,14 +37,14 @@ const routes: Routes = [{
   }]
 }, {
   path: 'ideal-type',
-  // canActivateChild: [AuthGuardService],
+  canActivateChild: [AuthGuardService],
   children: [{
     path: 'profile',
     loadChildren: () => import('src/app/content/ideal-type/profile.module').then(m => m.IdealTypeProfileContentModule),
   }]
 }, {
   path: 'my',
-  // canActivateChild: [AuthGuardService],
+  canActivateChild: [AuthGuardService],
   children: [{
     path: 'account',
     loadChildren: () => import('src/app/content/my/account.module').then(m => m.MyAccountContentModule),
@@ -61,9 +61,9 @@ const routes: Routes = [{
     path: ':id/profile',
     loadChildren: () => import('src/app/content/user/profile.module').then(m => m.UserProfileContentModule),
   }]
-// }, {
-//   path: '**',
-//   loadChildren: 'src/app/content/not-found.module#NotFoundContentModule'
+}, {
+  path: '**',
+  loadChildren: 'src/app/content/not-found.module#NotFoundContentModule'
 }];
 
 @NgModule({
