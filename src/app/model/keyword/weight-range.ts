@@ -14,7 +14,6 @@ export type WeightRangeRelations = {
 
 }
 
-@Injectable()
 export class WeightRange extends Model<WeightRangeAttributes, WeightRangeRelations> {
 
   protected readonly urlPath = 'keyword/weight-ranges';

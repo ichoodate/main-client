@@ -14,7 +14,6 @@ export type AgeRangeRelations = {
 
 }
 
-@Injectable()
 export class AgeRange extends Model<AgeRangeAttributes, AgeRangeRelations> {
 
   protected readonly urlPath = 'keyword/age-ranges';

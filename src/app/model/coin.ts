@@ -22,7 +22,6 @@ export type CoinRelations = {
   related: Obj
 }
 
-@Injectable()
 export class Coin extends Model<CoinAttributes, CoinRelations> {
 
   protected readonly urlPath = 'coins';

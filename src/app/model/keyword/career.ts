@@ -16,7 +16,6 @@ export type CareerRelations = {
 
 }
 
-@Injectable()
 export class Career extends Model<CareerAttributes, CareerRelations> {
 
   protected readonly urlPath = 'keyword/careers';

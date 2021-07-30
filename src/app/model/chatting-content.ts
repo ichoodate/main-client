@@ -19,7 +19,6 @@ export type ChattingContentRelations = {
   writer: User
 }
 
-@Injectable()
 export class ChattingContent extends Model<ChattingContentAttributes, ChattingContentRelations> {
 
   protected readonly urlPath = 'chatting-contents';

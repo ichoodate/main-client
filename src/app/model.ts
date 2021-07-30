@@ -17,7 +17,6 @@ export type ModelRelations = {
     undefined
 }
 
-@Injectable()
 export class Model<T extends ModelAttribute, R extends ModelRelations> {
 
   protected urlPath: string;

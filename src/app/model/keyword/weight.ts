@@ -13,7 +13,6 @@ export type WeightRelations = {
 
 }
 
-@Injectable()
 export class Weight extends Model<WeightAttributes, WeightRelations> {
 
   protected readonly urlPath = 'keyword/weights';

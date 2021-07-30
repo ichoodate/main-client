@@ -19,7 +19,6 @@ export type ActivityRelations = {
   user: User
 }
 
-@Injectable()
 export class Activity extends Model<ActivityAttributes, ActivityRelations> {
 
   protected readonly urlPath = 'activities';

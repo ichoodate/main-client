@@ -17,7 +17,6 @@ export type UserIdealTypeKwdPvtRelations = {
   keyword: Obj
 }
 
-@Injectable()
 export class UserIdealTypeKwdPvt extends Model<UserIdealTypeKwdPvtAttributes, UserIdealTypeKwdPvtRelations> {
 
   protected readonly urlPath = 'ideal-type-keywords';

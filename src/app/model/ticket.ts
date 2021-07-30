@@ -18,7 +18,6 @@ export type TicketRelations = {
   writer: User
 }
 
-@Injectable()
 export class Ticket extends Model<TicketAttributes, TicketRelations> {
 
   protected readonly urlPath = 'tickets';

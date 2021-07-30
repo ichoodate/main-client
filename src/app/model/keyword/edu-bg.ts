@@ -13,8 +13,6 @@ export type EduBgRelations = {
 
 }
 
-
-@Injectable()
 export class EduBg extends Model<EduBgAttributes, EduBgRelations> {
 
   protected readonly urlPath = 'keyword/education-backgrounds';

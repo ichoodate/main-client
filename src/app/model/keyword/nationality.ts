@@ -13,7 +13,6 @@ export type NationalityRelations = {
 
 }
 
-@Injectable()
 export class Nationality extends Model<NationalityAttributes, NationalityRelations> {
 
   protected readonly urlPath = 'keyword/nationalities';

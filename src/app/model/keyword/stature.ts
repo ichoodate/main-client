@@ -13,7 +13,6 @@ export type StatureRelations = {
 
 }
 
-@Injectable()
 export class Stature extends Model<StatureAttributes, StatureRelations> {
 
   protected readonly urlPath = 'keyword/statures';

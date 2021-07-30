@@ -13,7 +13,6 @@ export type LanguageRelations = {
 
 }
 
-@Injectable()
 export class Language extends Model<LanguageAttributes, LanguageRelations> {
 
   protected readonly urlPath = 'keyword/languages';

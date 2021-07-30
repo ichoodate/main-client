@@ -16,7 +16,6 @@ export type InvoiceRelations = {
   user: User
 }
 
-@Injectable()
 export class Invoice extends Model<InvoiceAttributes, InvoiceRelations> {
 
   protected readonly urlPath = 'invoices';

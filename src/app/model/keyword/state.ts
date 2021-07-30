@@ -14,7 +14,6 @@ export type StateRelations = {
 
 }
 
-@Injectable()
 export class State extends Model<StateAttributes, StateRelations> {
 
   protected readonly urlPath = 'keyword/states';

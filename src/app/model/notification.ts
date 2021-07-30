@@ -20,7 +20,6 @@ export type NotificationRelations = {
   activity: Activity
 }
 
-@Injectable()
 export class Notification extends Model<NotificationAttributes, NotificationRelations> {
 
   protected readonly urlPath = 'notifications';

@@ -18,7 +18,6 @@ export type PopularityRelations = {
   receiver: User
 }
 
-@Injectable()
 export class Popularity extends Model<PopularityAttributes, PopularityRelations> {
 
   protected readonly urlPath = 'popularities';

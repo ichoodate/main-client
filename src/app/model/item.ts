@@ -18,7 +18,6 @@ export type ItemRelations = {
 
 }
 
-@Injectable()
 export class Item extends Model<ItemAttributes, ItemRelations> {
 
   protected readonly urlPath = 'items';

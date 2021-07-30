@@ -15,7 +15,6 @@ export type RoleRelations = {
   user: User
 }
 
-@Injectable()
 export class Role extends Model<RoleAttributes, RoleRelations> {
 
   protected readonly urlPath = 'roles';

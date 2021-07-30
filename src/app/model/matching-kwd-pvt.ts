@@ -16,7 +16,6 @@ export type MatchingKwdPvtRelations = {
   self_kwd: Obj
 }
 
-@Injectable()
 export class MatchingKwdPvt extends Model<MatchingKwdPvtAttributes, MatchingKwdPvtRelations> {
 
 }

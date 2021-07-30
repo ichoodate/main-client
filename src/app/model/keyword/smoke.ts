@@ -13,7 +13,6 @@ export type SmokeRelations = {
 
 }
 
-@Injectable()
 export class Smoke extends Model<SmokeAttributes, SmokeRelations> {
 
   protected readonly urlPath = 'keyword/smokes';

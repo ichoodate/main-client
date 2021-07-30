@@ -18,7 +18,6 @@ export type CountryRelations = {
 
 }
 
-@Injectable()
 export class Country extends Model<CountryAttributes, CountryRelations> {
 
   protected readonly urlPath = 'keyword/countries';

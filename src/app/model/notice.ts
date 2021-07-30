@@ -17,7 +17,6 @@ export type NoticeRelations = {
 
 }
 
-@Injectable()
 export class Notice extends Model<NoticeAttributes, NoticeRelations> {
 
   protected readonly urlPath = 'notices';

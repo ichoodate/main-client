@@ -16,7 +16,6 @@ export type CardGroupRelations = {
   user: User
 }
 
-@Injectable()
 export class CardGroup extends Model<CardGroupAttributes, CardGroupRelations> {
 
   protected readonly urlPath = 'card-groups';

@@ -17,7 +17,6 @@ export type UserSelfKwdPvtRelations = {
   keyword: Obj
 }
 
-@Injectable()
 export class UserSelfKwdPvt extends Model<UserSelfKwdPvtAttributes, UserSelfKwdPvtRelations> {
 
   protected readonly urlPath = 'self-keywords';

@@ -13,7 +13,6 @@ export type ObjRelations = {
   concrete?: Model<ModelAttribute, ModelRelations>
 }
 
-@Injectable()
 export class Obj extends Model<ObjAttributes, ObjRelations> {
 
 }

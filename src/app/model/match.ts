@@ -16,7 +16,6 @@ export type MatchRelations = {
   woman: User
 }
 
-@Injectable()
 export class Match extends Model<MatchAttributes, MatchRelations> {
 
   protected readonly urlPath = 'matches';

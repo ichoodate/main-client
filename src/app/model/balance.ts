@@ -17,7 +17,6 @@ export type BalanceRelations = {
   user: User
 }
 
-@Injectable()
 export class Balance extends Model<BalanceAttributes, BalanceRelations> {
 
   protected readonly urlPath = 'balances';

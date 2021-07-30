@@ -16,7 +16,6 @@ export type FacePhotoRelations = {
   user: User,
 }
 
-@Injectable()
 export class FacePhoto extends Model<FacePhotoAttributes, FacePhotoRelations> {
 
   protected readonly urlPath = 'face-photos';

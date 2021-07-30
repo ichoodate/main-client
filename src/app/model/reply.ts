@@ -20,7 +20,6 @@ export type ReplyRelations = {
   writer: User
 }
 
-@Injectable()
 export class Reply extends Model<ReplyAttributes, ReplyRelations> {
 
   protected readonly urlPath = 'replies';

@@ -16,7 +16,6 @@ export type ProfilePhotoRelations = {
   user: User,
 }
 
-@Injectable()
 export class ProfilePhoto extends Model<ProfilePhotoAttributes, ProfilePhotoRelations> {
 
   protected readonly urlPath = 'profile-photos';

@@ -14,7 +14,6 @@ export type ResidenceRelations = {
 
 }
 
-@Injectable()
 export class Residence extends Model<ResidenceAttributes, ResidenceRelations> {
 
   protected readonly urlPath = 'keyword/residences';

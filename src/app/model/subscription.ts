@@ -20,7 +20,6 @@ export type SubscriptionRelations = {
   payment: Payment
 }
 
-@Injectable()
 export class Subscription extends Model<SubscriptionAttributes, SubscriptionRelations> {
 
   protected readonly urlPath = 'subscriptions';

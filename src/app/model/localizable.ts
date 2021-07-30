@@ -16,7 +16,6 @@ export type LocalizableRelations = {
   keyword: Obj
 }
 
-@Injectable()
 export class Localizable extends Model<LocalizableAttributes, LocalizableRelations> {
 
   protected readonly urlPath = 'localizables';

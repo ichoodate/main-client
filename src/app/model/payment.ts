@@ -19,7 +19,6 @@ export type PaymentRelations = {
   item: Item
 }
 
-@Injectable()
 export class Payment extends Model<PaymentAttributes, PaymentRelations> {
 
   protected readonly urlPath = 'payments';
