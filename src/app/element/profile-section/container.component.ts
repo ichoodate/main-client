@@ -1,4 +1,3 @@
-import { Loader, ModuleNamespace } from 'es-module-loader/core/loader-polyfill.js';
 import * as _ from 'lodash';
 import { from, concat, forkJoin, Observable, of } from 'rxjs';
 import { map, switchMap } from 'rxjs/operators';
