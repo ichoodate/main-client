@@ -1,6 +1,4 @@
 <div *ngIf="weightRange">
-  {{weightRange.getAttrs().min}} ~ {{weightRange.getAttrs().max}}
+  {{ weightRange.getAttrs().min }} ~ {{ weightRange.getAttrs().max }}
 </div>
-<div *ngIf="!weightRange">
-  weightRange is not exist
-</div>
+<div *ngIf="!weightRange">weightRange is not exist</div>

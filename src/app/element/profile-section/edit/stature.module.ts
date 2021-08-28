@@ -4,15 +4,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { ProfileSectionEditStatureComponent } from './stature.component';
 
 @NgModule({
-  declarations: [
-    ProfileSectionEditStatureComponent
-  ],
-  exports: [
-    ProfileSectionEditStatureComponent
-  ],
-  imports: [
-    CommonModule,
-    ReactiveFormsModule
-  ]
+  declarations: [ProfileSectionEditStatureComponent],
+  exports: [ProfileSectionEditStatureComponent],
+  imports: [CommonModule, ReactiveFormsModule],
 })
-export class ProfileSectionEditStatureModule { }
+export class ProfileSectionEditStatureModule {}

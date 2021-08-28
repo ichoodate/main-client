@@ -1,12 +1,10 @@
 <div class="form-group input-group btn-group">
-  <select
-    [formControl]="form.get('nationality')"
-    [compareWith]="compareWith"
-  >
-    <option *ngFor="let country of countryList"
+  <select [formControl]="form.get('nationality')" [compareWith]="compareWith">
+    <option
+      *ngFor="let country of countryList"
       [ngValue]="country.getRelation('nationality')"
     >
-      {{country.getAttrs().name}}
+      {{ country.getAttrs().name }}
     </option>
   </select>
 </div>

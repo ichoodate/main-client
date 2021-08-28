@@ -1,19 +1,15 @@
 import { Injectable } from '@angular/core';
-import { HttpParams } from '@angular/common/http'
+import { HttpParams } from '@angular/common/http';
 import { Model } from 'src/app/model';
 import { HttpService } from 'src/app/service/http.service';
 
 export type ReligionAttributes = {
-  id: string,
-  type: string
-}
+  id: string;
+  type: string;
+};
 
-export type ReligionRelations = {
-
-}
+export type ReligionRelations = {};
 
 export class Religion extends Model<ReligionAttributes, ReligionRelations> {
-
   protected readonly urlPath = 'keyword/religions';
-
 }

@@ -1,12 +1,7 @@
 <div class="form-group input-group btn-group">
-  <select
-    [formControl]="form.get('religion')"
-    [compareWith]="compareWith"
-    >
-    <option *ngFor="let religion of religionList"
-      [ngValue]="religion"
-    >
-      {{religion.getAttrs().type}}
+  <select [formControl]="form.get('religion')" [compareWith]="compareWith">
+    <option *ngFor="let religion of religionList" [ngValue]="religion">
+      {{ religion.getAttrs().type }}
     </option>
   </select>
 </div>

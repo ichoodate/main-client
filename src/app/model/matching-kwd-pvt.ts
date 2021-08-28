@@ -1,20 +1,21 @@
 import { Injectable } from '@angular/core';
-import { HttpParams } from '@angular/common/http'
+import { HttpParams } from '@angular/common/http';
 import { Model } from 'src/app/model';
 import { Obj } from 'src/app/model/obj';
 import { HttpService } from 'src/app/service/http.service';
 
 export type MatchingKwdPvtAttributes = {
-  id: string,
-  ideal_kwd_id: string,
-  self_kwd_id: string
-}
+  id: string;
+  ideal_kwd_id: string;
+  self_kwd_id: string;
+};
 
 export type MatchingKwdPvtRelations = {
-  ideale_kwd: Obj
-  self_kwd: Obj
-}
+  ideale_kwd: Obj;
+  self_kwd: Obj;
+};
 
-export class MatchingKwdPvt extends Model<MatchingKwdPvtAttributes, MatchingKwdPvtRelations> {
-
-}
+export class MatchingKwdPvt extends Model<
+  MatchingKwdPvtAttributes,
+  MatchingKwdPvtRelations
+> {}

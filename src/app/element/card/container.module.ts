@@ -4,15 +4,8 @@ import { CardContainerComponent } from './container.component';
 import { CardModule } from '../card.module';
 
 @NgModule({
-  declarations: [
-    CardContainerComponent
-  ],
-  exports: [
-    CardContainerComponent
-  ],
-  imports: [
-    CommonModule,
-    CardModule
-  ]
+  declarations: [CardContainerComponent],
+  exports: [CardContainerComponent],
+  imports: [CommonModule, CardModule],
 })
-export class CardContainerModule { }
+export class CardContainerModule {}

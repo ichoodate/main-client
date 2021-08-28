@@ -1,27 +1,38 @@
 <div class="row m-3 border bg-white">
   <div class="col-12 py-3 d-flex">
     <label>{{ label }}</label>
-    <button class="btn btn-outline-primary ml-auto"
+    <button
+      class="btn btn-outline-primary ml-auto"
       *ngIf="isEditable() && !isEditMode()"
       [disabled]="isLoading()"
-      (click)="edit()">
+      (click)="edit()"
+    >
       <i class="fas fa-edit"></i>&nbsp;<span i18n="@@edit-btn">edit</span>
     </button>
-    <button class="btn btn-primary ml-auto"
+    <button
+      class="btn btn-primary ml-auto"
       *ngIf="isEditable() && isEditMode()"
-      [disabled]="isLoading() || component.form.invalid || component.form.pristine"
-      (click)="confirm()">
-      <i class="far fa-check-circle"></i>&nbsp;<span i18n="@@change-btn">change</span>
+      [disabled]="
+        isLoading() || component.form.invalid || component.form.pristine
+      "
+      (click)="confirm()"
+    >
+      <i class="far fa-check-circle"></i>&nbsp;<span i18n="@@change-btn"
+        >change</span
+      >
     </button>
-    <button class="btn btn-outline-primary ml-auto"
+    <button
+      class="btn btn-outline-primary ml-auto"
       *ngIf="isEditable() && isEditMode()"
       [disabled]="isLoading()"
-      (click)="show()">
-      <i lcass="far fa-check-circle"></i>&nbsp;<span i18n="@@cancel-btn">cancel</span>
+      (click)="show()"
+    >
+      <i lcass="far fa-check-circle"></i>&nbsp;<span i18n="@@cancel-btn"
+        >cancel</span
+      >
     </button>
   </div>
   <div class="col-12 pb-3" [hidden]="isLoading()">
-    <ng-template #container>
-    </ng-template>
+    <ng-template #container> </ng-template>
   </div>
- </div>
+</div>

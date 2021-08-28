@@ -3,14 +3,8 @@ import { CommonModule } from '@angular/common';
 import { ProfileSectionShowReligionComponent } from './religion.component';
 
 @NgModule({
-  declarations: [
-    ProfileSectionShowReligionComponent
-  ],
-  exports: [
-    ProfileSectionShowReligionComponent
-  ],
-  imports: [
-    CommonModule
-  ]
+  declarations: [ProfileSectionShowReligionComponent],
+  exports: [ProfileSectionShowReligionComponent],
+  imports: [CommonModule],
 })
-export class ProfileSectionShowReligionModule { }
+export class ProfileSectionShowReligionModule {}

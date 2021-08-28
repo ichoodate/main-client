@@ -7,23 +7,20 @@ import { ProfileDataService } from 'src/app/service/profile-data.service';
 @Component({
   selector: 'ideal-type-profile-content',
   templateUrl: './profile.component.html',
-  styleUrls: ['./profile.component.scss']
+  styleUrls: ['./profile.component.scss'],
 })
 export class IdealTypeProfileContentComponent {
-
   public readonly data: {};
   public readonly keywords: UserIdealTypeKwdPvt[];
   public readonly profileType: string;
 
   public constructor(route: ActivatedRoute) {
-
-    this.keywords    = route.snapshot.data.keywords;
+    this.keywords = route.snapshot.data.keywords;
     this.profileType = route.snapshot.data.profileType;
-    this.data        = ProfileDataService.getData(this.keywords);
+    this.data = ProfileDataService.getData(this.keywords);
   }
 
   public getLabels() {
-
     return [
       'age-range',
       'hobby',
@@ -31,8 +28,7 @@ export class IdealTypeProfileContentComponent {
       'religion',
       'residence',
       'stature-range',
-      'weight-range'
+      'weight-range',
     ];
   }
-
 }

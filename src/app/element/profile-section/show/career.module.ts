@@ -3,14 +3,8 @@ import { CommonModule } from '@angular/common';
 import { ProfileSectionShowCareerComponent } from './career.component';
 
 @NgModule({
-  declarations: [
-    ProfileSectionShowCareerComponent
-  ],
-  exports: [
-    ProfileSectionShowCareerComponent
-  ],
-  imports: [
-    CommonModule
-  ]
+  declarations: [ProfileSectionShowCareerComponent],
+  exports: [ProfileSectionShowCareerComponent],
+  imports: [CommonModule],
 })
-export class ProfileSectionShowCareerModule { }
+export class ProfileSectionShowCareerModule {}

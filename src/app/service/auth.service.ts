@@ -7,10 +7,9 @@ import { Observable, of } from 'rxjs';
 import { concat, map, switchMap } from 'rxjs/operators';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AuthService {
-
   public signedIn: boolean;
   private token: string;
   private authUser: User | null;
@@ -18,7 +17,6 @@ export class AuthService {
   private http: HttpClient;
 
   constructor(router: Router) {
-
     this.router = router;
     this.http = HttpService.api();
     this.authUser = null;
@@ -26,33 +24,29 @@ export class AuthService {
   }
 
   public isSignIn$(): Observable<any> {
-
-    if ( this.signedIn ) {
-
+    if (this.signedIn) {
       return of(this.signedIn);
     }
 
-    return this.user$().pipe(map((user: User | null): boolean => {
+    return this.user$().pipe(
+      map((user: User | null): boolean => {
+        if (typeof user == 'object' && user instanceof User) {
+          this.signedIn = true;
+        } else {
+          this.signedIn = false;
+        }
 
-      if ( typeof user == 'object' && user instanceof User ) {
-
-        this.signedIn = true;
-      } else {
-
-        this.signedIn = false;
-      }
-
-      return this.signedIn;
-    }));
+        return this.signedIn;
+      })
+    );
   }
 
-  public user$(): Observable<User|null> {
+  public user$(): Observable<User | null> {
+    let user$ = this.authUser
+      ? of(this.authUser)
+      : this.http.get<User | null>('auth/user');
 
-    let user$ = this.authUser ?
-      of(this.authUser) : this.http.get<User|null>('auth/user');
-
-    if ( !this.authUser ) {
-
+    if (!this.authUser) {
       user$.subscribe((user) => {
         this.authUser = user;
       });
@@ -61,25 +55,23 @@ export class AuthService {
     return user$;
   }
 
-  public signIn(credentials: {email: string, password: string}): void {
-
-    this.http.post('auth/sign-in', credentials).pipe(
-      switchMap(() => {
-        return this.isSignIn$();
-      })
-    ).subscribe((result: boolean) => {
-
-      if ( result ) {
-        window.location.reload();
-      }
-    });
+  public signIn(credentials: { email: string; password: string }): void {
+    this.http
+      .post('auth/sign-in', credentials)
+      .pipe(
+        switchMap(() => {
+          return this.isSignIn$();
+        })
+      )
+      .subscribe((result: boolean) => {
+        if (result) {
+          window.location.reload();
+        }
+      });
   }
 
   public signOut(): void {
-
-    this.http.post('auth/sign-out', {
-    }).subscribe((attrs: {}) => {
-
+    this.http.post('auth/sign-out', {}).subscribe((attrs: {}) => {
       this.signedIn = false;
       this.authUser = null;
 
@@ -88,13 +80,12 @@ export class AuthService {
   }
 
   public signUp(data: {}) {
-
-    this.http.post('auth/sign-up', {
-      params: data
-    }).subscribe((attrs: {}) => {
-
-      this.router.navigate(['/']);
-    });
+    this.http
+      .post('auth/sign-up', {
+        params: data,
+      })
+      .subscribe((attrs: {}) => {
+        this.router.navigate(['/']);
+      });
   }
-
 }

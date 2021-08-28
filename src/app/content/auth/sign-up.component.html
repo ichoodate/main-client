@@ -1,22 +1,22 @@
 <form [formGroup]="form" (ngSubmit)="signUp()">
   <label>
     Email:
-    <input type="text" formControlName="email">
+    <input type="text" formControlName="email" />
   </label>
   <label>
     Password:
-    <input type="text" formControlName="password">
+    <input type="text" formControlName="password" />
   </label>
   <label>
     name:
-    <input type="text" formControlName="name">
+    <input type="text" formControlName="name" />
   </label>
   <label>
-    <input type="radio" value="male" formControlName="gender">
+    <input type="radio" value="male" formControlName="gender" />
     <span>male</span>
   </label>
   <label>
-    <input type="radio" value="female" formControlName="gender">
+    <input type="radio" value="female" formControlName="gender" />
     <span>female</span>
   </label>
   <button type="submit">submit</button>

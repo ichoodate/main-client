@@ -4,15 +4,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { ProfileSectionEditWeightRangeComponent } from './weight-range.component';
 
 @NgModule({
-  declarations: [
-    ProfileSectionEditWeightRangeComponent
-  ],
-  exports: [
-    ProfileSectionEditWeightRangeComponent
-  ],
-  imports: [
-    CommonModule,
-    ReactiveFormsModule
-  ]
+  declarations: [ProfileSectionEditWeightRangeComponent],
+  exports: [ProfileSectionEditWeightRangeComponent],
+  imports: [CommonModule, ReactiveFormsModule],
 })
-export class ProfileSectionEditWeightRangeModule { }
+export class ProfileSectionEditWeightRangeModule {}

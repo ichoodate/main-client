@@ -8,51 +8,51 @@ import { User } from 'src/app/model/user';
 import { AuthService } from 'src/app/service/auth.service';
 import { HttpService } from 'src/app/service/http.service';
 
-const routes: Routes = [{
-  path: '',
-  component: MyProfileContentComponent,
-  data: {
-    profileType: 'self'
+const routes: Routes = [
+  {
+    path: '',
+    component: MyProfileContentComponent,
+    data: {
+      profileType: 'self',
+    },
+    resolve: {
+      keywords: 'keywords$$',
+      user: 'user$$',
+    },
   },
-  resolve: {
-    keywords: 'keywords$$',
-    user: 'user$$'
-  }
-}];
+];
 
 @NgModule({
-  declarations: [
-    MyProfileContentComponent
-  ],
-  exports: [
-    MyProfileContentComponent
-  ],
-  imports: [
-    UserProfileModule,
-    RouterModule.forChild(routes)
-  ],
-  providers: [{
-    provide: 'keywords$$',
-    useFactory: (user$$: () => Observable<User>) => {
-
-      return () => user$$().pipe(
-        switchMap((user: User) => {
-
-          return HttpService.api().get('users/' + user.getAttrs().id + '/self-keywords', {
-            params: {
-              expands: 'keyword.concrete'
-            }
-          });
-        })
-      );
+  declarations: [MyProfileContentComponent],
+  exports: [MyProfileContentComponent],
+  imports: [UserProfileModule, RouterModule.forChild(routes)],
+  providers: [
+    {
+      provide: 'keywords$$',
+      useFactory: (user$$: () => Observable<User>) => {
+        return () =>
+          user$$().pipe(
+            switchMap((user: User) => {
+              return HttpService.api().get(
+                'users/' + user.getAttrs().id + '/self-keywords',
+                {
+                  params: {
+                    expands: 'keyword.concrete',
+                  },
+                }
+              );
+            })
+          );
+      },
+      deps: ['user$$'],
     },
-    deps: ['user$$']
-  }, {
-    provide: 'user$$',
-    useFactory: (auth: AuthService) => {
-      return () => auth.user$();
+    {
+      provide: 'user$$',
+      useFactory: (auth: AuthService) => {
+        return () => auth.user$();
+      },
+      deps: [AuthService],
     },
-    deps: [AuthService]
-  }]
+  ],
 })
-export class MyProfileContentModule { }
+export class MyProfileContentModule {}

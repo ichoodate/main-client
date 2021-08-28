@@ -4,15 +4,8 @@ import { ProfileSectionContainerModule } from 'src/app/element/profile-section/c
 import { UserProfileComponent } from './user-profile.component';
 
 @NgModule({
-  declarations: [
-    UserProfileComponent
-  ],
-  exports: [
-    UserProfileComponent
-  ],
-  imports: [
-    CommonModule,
-    ProfileSectionContainerModule
-  ]
+  declarations: [UserProfileComponent],
+  exports: [UserProfileComponent],
+  imports: [CommonModule, ProfileSectionContainerModule],
 })
-export class UserProfileModule { }
+export class UserProfileModule {}

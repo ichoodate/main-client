@@ -1,21 +1,22 @@
-import { Component } from '@angular/core';
-import { Data, ProfileSectionShowComponent } from 'src/app/element/profile-section/show.component';
+import { Component, OnInit } from '@angular/core';
+import {
+  Data,
+  ProfileSectionShowComponent,
+} from 'src/app/element/profile-section/show.component';
 
 @Component({
   selector: 'profile-section-show-name',
-  templateUrl: './name.component.html'
+  templateUrl: './name.component.html',
 })
-export class ProfileSectionShowNameComponent extends ProfileSectionShowComponent {
-
+export class ProfileSectionShowNameComponent
+  extends ProfileSectionShowComponent
+  implements OnInit
+{
   public name: string;
 
   public ngOnInit() {
-
     this.name = this.shared.name;
   }
 
-  public static setUp$(data: Data) {
-
-  }
-
+  public static setUp$(data: Data) {}
 }

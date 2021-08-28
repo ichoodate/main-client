@@ -4,15 +4,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { ProfileSectionEditAgeRangeComponent } from './age-range.component';
 
 @NgModule({
-  declarations: [
-    ProfileSectionEditAgeRangeComponent
-  ],
-  exports: [
-    ProfileSectionEditAgeRangeComponent
-  ],
-  imports: [
-    CommonModule,
-    ReactiveFormsModule
-  ]
+  declarations: [ProfileSectionEditAgeRangeComponent],
+  exports: [ProfileSectionEditAgeRangeComponent],
+  imports: [CommonModule, ReactiveFormsModule],
 })
-export class ProfileSectionEditAgeRangeModule { }
+export class ProfileSectionEditAgeRangeModule {}

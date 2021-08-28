@@ -1,14 +1,10 @@
 <div class="form-group input-group btn-group">
-  <select
-    [formControl]="form.get('min')"
-    (change)="minChange()"
-    >
-    <option *ngFor="let min of minList" [value]="min">{{min}}</option>
+  <select [formControl]="form.get('min')" (change)="minChange()">
+    <option *ngFor="let min of minList" [value]="min">{{ min }}</option>
   </select>
-  <select
-    [formControl]="form.get('ageRange')"
-    [compareWith]="compareWith"
-  >
-    <option *ngFor="let ageRange of ageRangeList" [ngValue]="ageRange">{{ageRange.getAttrs().max}}</option>
+  <select [formControl]="form.get('ageRange')" [compareWith]="compareWith">
+    <option *ngFor="let ageRange of ageRangeList" [ngValue]="ageRange">
+      {{ ageRange.getAttrs().max }}
+    </option>
   </select>
 </div>

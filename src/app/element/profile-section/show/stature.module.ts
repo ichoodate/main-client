@@ -3,14 +3,8 @@ import { CommonModule } from '@angular/common';
 import { ProfileSectionShowStatureComponent } from './stature.component';
 
 @NgModule({
-  declarations: [
-    ProfileSectionShowStatureComponent
-  ],
-  exports: [
-    ProfileSectionShowStatureComponent
-  ],
-  imports: [
-    CommonModule
-  ]
+  declarations: [ProfileSectionShowStatureComponent],
+  exports: [ProfileSectionShowStatureComponent],
+  imports: [CommonModule],
 })
-export class ProfileSectionShowStatureModule { }
+export class ProfileSectionShowStatureModule {}

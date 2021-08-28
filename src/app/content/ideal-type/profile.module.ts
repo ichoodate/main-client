@@ -6,36 +6,37 @@ import { ProfileSectionContainerModule } from 'src/app/element/profile-section/c
 import { User } from 'src/app/model/user';
 import { HttpService } from 'src/app/service/http.service';
 
-const routes: Routes = [{
-  path: '',
-  component: IdealTypeProfileContentComponent,
-  data: {
-    profileType: 'ideal-type'
+const routes: Routes = [
+  {
+    path: '',
+    component: IdealTypeProfileContentComponent,
+    data: {
+      profileType: 'ideal-type',
+    },
+    resolve: {
+      keywords: 'keywords$$',
+    },
   },
-  resolve: {
-    keywords: 'keywords$$'
-  }
-}];
+];
 
 @NgModule({
-  declarations: [
-    IdealTypeProfileContentComponent
-  ],
-  exports: [
-    IdealTypeProfileContentComponent
-  ],
+  declarations: [IdealTypeProfileContentComponent],
+  exports: [IdealTypeProfileContentComponent],
   imports: [
     CommonModule,
     ProfileSectionContainerModule,
-    RouterModule.forChild(routes)
+    RouterModule.forChild(routes),
   ],
-  providers: [{
-    provide: 'keywords$$',
-    useValue: () => HttpService.api().get('ideal-type-keywords', {
-      params: {
-        expands: 'keyword.concrete'
-      }
-    })
-  }]
+  providers: [
+    {
+      provide: 'keywords$$',
+      useValue: () =>
+        HttpService.api().get('ideal-type-keywords', {
+          params: {
+            expands: 'keyword.concrete',
+          },
+        }),
+    },
+  ],
 })
-export class IdealTypeProfileContentModule { }
+export class IdealTypeProfileContentModule {}

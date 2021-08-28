@@ -4,15 +4,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { ProfileSectionEditResidenceComponent } from './residence.component';
 
 @NgModule({
-  declarations: [
-    ProfileSectionEditResidenceComponent
-  ],
-  exports: [
-    ProfileSectionEditResidenceComponent
-  ],
-  imports: [
-    CommonModule,
-    ReactiveFormsModule
-  ]
+  declarations: [ProfileSectionEditResidenceComponent],
+  exports: [ProfileSectionEditResidenceComponent],
+  imports: [CommonModule, ReactiveFormsModule],
 })
-export class ProfileSectionEditResidenceModule { }
+export class ProfileSectionEditResidenceModule {}

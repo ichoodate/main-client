@@ -3,16 +3,8 @@ import { CommonModule } from '@angular/common';
 import { ProfileSectionShowAgeRangeComponent } from './age-range.component';
 
 @NgModule({
-  declarations: [
-    ProfileSectionShowAgeRangeComponent
-  ],
-  exports: [
-    ProfileSectionShowAgeRangeComponent
-  ],
-  imports: [
-    CommonModule
-  ]
+  declarations: [ProfileSectionShowAgeRangeComponent],
+  exports: [ProfileSectionShowAgeRangeComponent],
+  imports: [CommonModule],
 })
-export class ProfileSectionShowAgeRangeModule {
-
-}
+export class ProfileSectionShowAgeRangeModule {}

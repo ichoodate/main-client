@@ -3,14 +3,8 @@ import { RouterModule } from '@angular/router';
 import { CardComponent } from './card.component';
 
 @NgModule({
-  declarations: [
-    CardComponent
-  ],
-  exports: [
-    CardComponent
-  ],
-  imports: [
-    RouterModule
-  ]
+  declarations: [CardComponent],
+  exports: [CardComponent],
+  imports: [RouterModule],
 })
-export class CardModule { }
+export class CardModule {}

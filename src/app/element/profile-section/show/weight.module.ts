@@ -3,14 +3,8 @@ import { CommonModule } from '@angular/common';
 import { ProfileSectionShowWeightComponent } from './weight.component';
 
 @NgModule({
-  declarations: [
-    ProfileSectionShowWeightComponent
-  ],
-  exports: [
-    ProfileSectionShowWeightComponent
-  ],
-  imports: [
-    CommonModule
-  ]
+  declarations: [ProfileSectionShowWeightComponent],
+  exports: [ProfileSectionShowWeightComponent],
+  imports: [CommonModule],
 })
-export class ProfileSectionShowWeightModule { }
+export class ProfileSectionShowWeightModule {}

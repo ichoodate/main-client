@@ -6,10 +6,14 @@
 <div class="bg-light">
   <div class="container">
     <div class="row">
-      <profile-section-container class="col-12 col-sm-6 col-md-4"
-        *ngFor="let label of getLabels();"
-        [label]="label" [data]="data[label]" [profileType]="profileType"
+      <profile-section-container
+        class="col-12 col-sm-6 col-md-4"
+        *ngFor="let label of getLabels()"
+        [label]="label"
+        [data]="data[label]"
+        [profileType]="profileType"
       >
       </profile-section-container>
+    </div>
   </div>
 </div>

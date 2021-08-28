@@ -4,11 +4,8 @@ import { ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'index-content',
   templateUrl: './index.component.html',
-  styleUrls: ['./index.component.scss']
+  styleUrls: ['./index.component.scss'],
 })
 export class IndexContentComponent {
-
-  public constructor(route: ActivatedRoute) {
-  }
-
+  public constructor(route: ActivatedRoute) {}
 }

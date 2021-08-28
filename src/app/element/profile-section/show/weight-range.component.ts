@@ -1,24 +1,23 @@
-import { Component } from '@angular/core';
-import { HttpService } from 'src/app/service/http.service';
-import { Observable } from 'rxjs';
+import { Component, OnInit } from '@angular/core';
+import {
+  Data,
+  ProfileSectionShowComponent,
+} from 'src/app/element/profile-section/show.component';
 import { WeightRange } from 'src/app/model/keyword/weight-range';
-import { Data, ProfileSectionShowComponent } from 'src/app/element/profile-section/show.component';
 
 @Component({
   selector: 'profile-section-show-weight-range',
-  templateUrl: './weight-range.component.html'
+  templateUrl: './weight-range.component.html',
 })
-export class ProfileSectionShowWeightRangeComponent extends ProfileSectionShowComponent {
-
+export class ProfileSectionShowWeightRangeComponent
+  extends ProfileSectionShowComponent
+  implements OnInit
+{
   public weightRange: WeightRange;
 
   public ngOnInit() {
-
     this.weightRange = this.shared.weightRange;
   }
 
-  public static setUp$(data: Data) {
-
-  }
-
+  public static setUp$(data: Data) {}
 }

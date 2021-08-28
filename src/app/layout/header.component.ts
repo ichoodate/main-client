@@ -4,12 +4,8 @@ import { AuthService } from 'src/app/service/auth.service';
 @Component({
   selector: 'layout-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss']
+  styleUrls: ['./header.component.scss'],
 })
 export class LayoutHeaderComponent {
-
-  constructor(private auth: AuthService) {
-
-  }
-
+  constructor(private auth: AuthService) {}
 }

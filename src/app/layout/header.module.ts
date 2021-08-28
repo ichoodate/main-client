@@ -4,15 +4,8 @@ import { CommonModule } from '@angular/common';
 import { LayoutHeaderComponent } from './header.component';
 
 @NgModule({
-  declarations: [
-    LayoutHeaderComponent
-  ],
-  exports: [
-    LayoutHeaderComponent
-  ],
-  imports: [
-    CommonModule,
-    RouterModule
-  ]
+  declarations: [LayoutHeaderComponent],
+  exports: [LayoutHeaderComponent],
+  imports: [CommonModule, RouterModule],
 })
-export class LayoutHeaderModule { }
+export class LayoutHeaderModule {}

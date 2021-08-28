@@ -5,16 +5,12 @@ import { User } from 'src/app/model/user';
 @Component({
   selector: 'matching-history-content',
   templateUrl: './history.component.html',
-  styleUrls: ['./history.component.scss']
+  styleUrls: ['./history.component.scss'],
 })
 export class MatchingHistoryContentComponent {
-
-  constructor() {
-
-  }
+  constructor() {}
 
   getUsers() {
-    return _.range(0, 12).map(n => new User({ id: String(n) }));
+    return _.range(0, 12).map((n) => new User({ id: String(n) }));
   }
-
 }

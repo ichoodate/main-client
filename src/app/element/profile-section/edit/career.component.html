@@ -1,17 +1,13 @@
 <div class="form-group input-group btn-group">
-  <div
-    *ngFor="let careerList of careerLists;let i = index;"
-  >
+  <div *ngFor="let careerList of careerLists; let i = index">
     <select
-      *ngIf="careerList.length != 0"
+      *ngIf="careerList.length !== 0"
       [formControl]="form.get('careers').at(i)"
       [compareWith]="compareWith"
       (change)="change(i)"
     >
-      <option *ngFor="let career of careerList;"
-        [ngValue]="career"
-      >
-        {{career.getAttrs().name}}
+      <option *ngFor="let career of careerList" [ngValue]="career">
+        {{ career.getAttrs().name }}
       </option>
     </select>
   </div>

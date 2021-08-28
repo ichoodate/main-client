@@ -4,15 +4,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { ProfileSectionShowHobbyComponent } from './hobby.component';
 
 @NgModule({
-  declarations: [
-    ProfileSectionShowHobbyComponent
-  ],
-  exports: [
-    ProfileSectionShowHobbyComponent
-  ],
-  imports: [
-    CommonModule,
-    ReactiveFormsModule
-  ]
+  declarations: [ProfileSectionShowHobbyComponent],
+  exports: [ProfileSectionShowHobbyComponent],
+  imports: [CommonModule, ReactiveFormsModule],
 })
-export class ProfileSectionShowHobbyModule { }
+export class ProfileSectionShowHobbyModule {}

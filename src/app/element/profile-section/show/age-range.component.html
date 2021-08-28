@@ -1,6 +1,4 @@
 <div *ngIf="ageRange">
-  {{ageRange.getAttrs().min}} ~ {{ageRange.getAttrs().max}}
+  {{ ageRange.getAttrs().min }} ~ {{ ageRange.getAttrs().max }}
 </div>
-<div *ngIf="!ageRange">
-  ageRange is not exist
-</div>
+<div *ngIf="!ageRange">ageRange is not exist</div>
