@@ -1,10 +1,11 @@
 import * as _ from 'lodash';
 import { Inject, Injectable, Injector } from '@angular/core';
 import {
-  HttpRequest,
-  HttpHandler,
   HttpEvent,
+  HttpEventType,
+  HttpHandler,
   HttpInterceptor,
+  HttpRequest,
   HttpResponse,
   HttpErrorResponse,
 } from '@angular/common/http';
@@ -23,10 +24,15 @@ import {
   providedIn: 'root',
 })
 export class ModelifyApiInterceptor implements HttpInterceptor {
-  public intercept(request: HttpRequest<any>, next: HttpHandler): any {
+  public intercept(
+    request: HttpRequest<any>,
+    next: HttpHandler
+  ): Observable<HttpEvent<any>> {
     return next.handle(request).pipe(
-      filter((event: HttpEvent<any>) => event instanceof HttpResponse),
-      map((response: HttpResponse<any>): any => {
+      filter((event: HttpEvent<any>) => {
+        return event.type === HttpEventType.Response;
+      }) as OperatorFunction<HttpEvent<any>, HttpResponse<any>>,
+      map((response: HttpResponse<any>) => {
         let body = response.body;
 
         if (typeof body == 'undefined') {

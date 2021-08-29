@@ -22,11 +22,11 @@ export type Mode = 'show' | 'edit';
 })
 export class ProfileSectionContainerComponent implements OnInit {
   @Input()
-  public readonly label: string;
+  public label: string;
   @Input()
-  private readonly data: Object;
+  private data: Object;
   @Input()
-  private readonly profileType: string;
+  private profileType: string;
   @ViewChild('container', { read: ViewContainerRef, static: false })
   private container: ViewContainerRef;
   public shared: Object;

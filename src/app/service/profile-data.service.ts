@@ -11,7 +11,7 @@ type UserKwdPvt = UserSelfKwdPvt | UserIdealTypeKwdPvt;
   providedIn: 'root',
 })
 export class ProfileDataService {
-  public static getData(keywords: UserKwdPvt[], user: User = undefined) {
+  public static getData(keywords: UserKwdPvt[], user?: User) {
     const data = _.chain({
       user: user,
       keywords: this.transformKeywords(keywords),

@@ -19,31 +19,37 @@ export class HttpService {
   static apiClient: HttpClient;
 
   private static init(client: string, injector: Injector): HttpClient {
-    if (typeof HttpService[client] == 'undefined') {
-      HttpService[client] = Injector.create({
-        providers: [
-          {
-            provide: HttpBackend,
-            useValue: new HttpXhrBackend({ build: () => new XMLHttpRequest() }),
-          },
-          {
-            provide: Injector,
-            useValue: injector,
-          },
-          {
-            provide: HttpHandler,
-            useClass: ɵHttpInterceptingHandler,
-            deps: [HttpBackend, Injector],
-          },
-          {
-            provide: HttpClient,
-            deps: [HttpHandler],
-          },
-        ],
-      }).get(HttpClient);
+    if (
+      Object.getOwnPropertyDescriptor(HttpService, client)?.value === undefined
+    ) {
+      Object.defineProperty(HttpService, client, {
+        value: Injector.create({
+          providers: [
+            {
+              provide: HttpBackend,
+              useValue: new HttpXhrBackend({
+                build: () => new XMLHttpRequest(),
+              }),
+            },
+            {
+              provide: Injector,
+              useValue: injector,
+            },
+            {
+              provide: HttpHandler,
+              useClass: ɵHttpInterceptingHandler,
+              deps: [HttpBackend, Injector],
+            },
+            {
+              provide: HttpClient,
+              deps: [HttpHandler],
+            },
+          ],
+        }).get(HttpClient),
+      });
     }
 
-    return HttpService[client];
+    return Object.getOwnPropertyDescriptor(HttpService, client)?.value;
   }
 
   public static api(): HttpClient {
