@@ -1,9 +1,7 @@
-import * as _ from 'lodash';
-import { Injectable } from '@angular/core';
 import { HttpParams } from '@angular/common/http';
-import { Observable, of } from 'rxjs';
+import * as _ from 'lodash';
+import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { HttpClient } from '@angular/common/http';
 import { HttpService } from 'src/app/service/http.service';
 
 export type ModelAttribute = {

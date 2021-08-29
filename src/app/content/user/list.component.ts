@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { User } from 'src/app/model/user';
 import { ActivatedRoute } from '@angular/router';
 import * as _ from 'lodash';
+import { User } from 'src/app/model/user';
 
 @Component({
   selector: 'user-list-content',

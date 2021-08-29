@@ -1,8 +1,7 @@
 import { OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-import { Observable, of } from 'rxjs';
+import { Observable } from 'rxjs';
 import { Model } from 'src/app/model';
-import { ProfileSectionContainerComponent } from 'src/app/element/profile-section/container.component';
 
 export type Data = {
   [name: string]: any;

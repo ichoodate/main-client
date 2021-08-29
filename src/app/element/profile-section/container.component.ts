@@ -1,6 +1,3 @@
-import * as _ from 'lodash';
-import { from, concat, forkJoin, Observable, of } from 'rxjs';
-import { map, switchMap } from 'rxjs/operators';
 import {
   Compiler,
   Component,
@@ -10,6 +7,9 @@ import {
   ViewChild,
   ViewContainerRef,
 } from '@angular/core';
+import * as _ from 'lodash';
+import { concat, forkJoin, from, Observable, of } from 'rxjs';
+import { map, switchMap } from 'rxjs/operators';
 import { ProfileSectionEditComponent } from 'src/app/element/profile-section/edit.component';
 import { ProfileSectionShowComponent } from 'src/app/element/profile-section/show.component';
 

@@ -1,12 +1,12 @@
-import { Injectable, Injector } from '@angular/core';
 import {
-  ɵHttpInterceptingHandler,
   HttpBackend,
   HttpClient,
   HttpHandler,
   HttpXhrBackend,
   HTTP_INTERCEPTORS,
+  ɵHttpInterceptingHandler,
 } from '@angular/common/http';
+import { Injectable, Injector } from '@angular/core';
 import { AuthTokenApiInterceptor } from 'src/app/provider/interceptor/api/auth-token.provider';
 import { BaseUrlApiInterceptor } from 'src/app/provider/interceptor/api/base-url.provider';
 import { JsonifyApiInterceptor } from 'src/app/provider/interceptor/api/jsonify.provider';

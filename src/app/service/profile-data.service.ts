@@ -1,5 +1,5 @@
-import * as _ from 'lodash';
 import { Injectable } from '@angular/core';
+import * as _ from 'lodash';
 import { Obj } from 'src/app/model/obj';
 import { User } from 'src/app/model/user';
 import { UserIdealTypeKwdPvt } from 'src/app/model/user-ideal-type-kwd-pvt';

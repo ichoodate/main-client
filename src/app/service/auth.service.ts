@@ -1,10 +1,10 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { HttpClient } from '@angular/common/http';
-import { HttpService } from 'src/app/service/http.service';
-import { User } from 'src/app/model/user';
 import { Observable, of } from 'rxjs';
-import { concat, map, switchMap } from 'rxjs/operators';
+import { map, switchMap } from 'rxjs/operators';
+import { User } from 'src/app/model/user';
+import { HttpService } from 'src/app/service/http.service';
 
 @Injectable({
   providedIn: 'root',

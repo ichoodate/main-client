@@ -1,5 +1,3 @@
-import * as _ from 'lodash';
-import { Inject, Injectable, Injector } from '@angular/core';
 import {
   HttpEvent,
   HttpEventType,
@@ -7,18 +5,12 @@ import {
   HttpInterceptor,
   HttpRequest,
   HttpResponse,
-  HttpErrorResponse,
 } from '@angular/common/http';
-import { map, filter, switchMap } from 'rxjs/operators';
+import { Injectable } from '@angular/core';
+import * as _ from 'lodash';
+import { Observable } from 'rxjs';
+import { filter, map } from 'rxjs/operators';
 import { Model } from 'src/app/model';
-import {
-  Observable,
-  from,
-  forkJoin,
-  of,
-  ObservableInput,
-  throwError,
-} from 'rxjs';
 
 @Injectable({
   providedIn: 'root',

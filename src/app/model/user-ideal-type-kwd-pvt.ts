@@ -1,9 +1,6 @@
-import { Injectable } from '@angular/core';
-import { HttpParams } from '@angular/common/http';
 import { Model } from 'src/app/model';
 import { Obj } from 'src/app/model/obj';
 import { User } from 'src/app/model/user';
-import { HttpService } from 'src/app/service/http.service';
 
 export type UserIdealTypeKwdPvtAttributes = {
   id: string;

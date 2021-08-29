@@ -1,9 +1,6 @@
-import { Injectable } from '@angular/core';
-import { HttpParams } from '@angular/common/http';
 import { Model } from 'src/app/model';
-import { User } from 'src/app/model/user';
 import { Payment } from 'src/app/model/payment';
-import { HttpService } from 'src/app/service/http.service';
+import { User } from 'src/app/model/user';
 
 export type SubscriptionAttributes = {
   id: string;

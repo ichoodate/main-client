@@ -8,8 +8,8 @@ import {
   Router,
   RouterStateSnapshot,
 } from '@angular/router';
+import { Observable } from 'rxjs';
 import { AuthService } from './auth.service';
-import { Observable, of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',

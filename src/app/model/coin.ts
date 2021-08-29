@@ -1,10 +1,7 @@
-import { Injectable } from '@angular/core';
-import { HttpParams } from '@angular/common/http';
 import { Model } from 'src/app/model';
-import { User } from 'src/app/model/user';
 import { Balance } from 'src/app/model/balance';
 import { Obj } from 'src/app/model/obj';
-import { HttpService } from 'src/app/service/http.service';
+import { User } from 'src/app/model/user';
 
 export type CoinAttributes = {
   id: string;

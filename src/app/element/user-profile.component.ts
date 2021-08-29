@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { UserSelfKwdPvt } from 'src/app/model/user-self-kwd-pvt';
 import { User } from 'src/app/model/user';
+import { UserSelfKwdPvt } from 'src/app/model/user-self-kwd-pvt';
 import { ProfileDataService } from 'src/app/service/profile-data.service';
 
 @Component({

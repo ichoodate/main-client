@@ -2,11 +2,11 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { Observable } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
-import { MyProfileContentComponent } from './profile.component';
 import { UserProfileModule } from 'src/app/element/user-profile.module';
 import { User } from 'src/app/model/user';
 import { AuthService } from 'src/app/service/auth.service';
 import { HttpService } from 'src/app/service/http.service';
+import { MyProfileContentComponent } from './profile.component';
 
 const routes: Routes = [
   {

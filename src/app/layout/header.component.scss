@@ -1,12 +1,13 @@
 #header-wrap {
-  background-color: #4829B2;
+  background-color: #4829b2;
   ul.navbar-nav {
     a {
       cursor: pointer;
     }
-    .dropdown-toggle, .nav-link {
+    .dropdown-toggle,
+    .nav-link {
       &:hover {
-        color: rgba(255,255,255,.75);
+        color: rgba(255, 255, 255, 0.75);
       }
     }
     #header-auth-item {

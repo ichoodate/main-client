@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
-import { User } from 'src/app/model/user';
 import * as _ from 'lodash';
-import { HttpService } from 'src/app/service/http.service';
+import { User } from 'src/app/model/user';
 
 @Component({
   selector: 'matching-today-content',

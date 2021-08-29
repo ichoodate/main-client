@@ -1,10 +1,9 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { IdealTypeProfileContentComponent } from './profile.component';
 import { ProfileSectionContainerModule } from 'src/app/element/profile-section/container.module';
-import { User } from 'src/app/model/user';
 import { HttpService } from 'src/app/service/http.service';
+import { IdealTypeProfileContentComponent } from './profile.component';
 
 const routes: Routes = [
   {

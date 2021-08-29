@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { User } from 'src/app/model/user';
 import { UserIdealTypeKwdPvt } from 'src/app/model/user-ideal-type-kwd-pvt';
 import { ProfileDataService } from 'src/app/service/profile-data.service';
 

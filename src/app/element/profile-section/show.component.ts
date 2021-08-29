@@ -1,5 +1,4 @@
 import { OnInit } from '@angular/core';
-import { ProfileSectionContainerComponent } from 'src/app/element/profile-section/container.component';
 
 export type Data = {
   [name: string]: any;

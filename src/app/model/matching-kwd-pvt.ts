@@ -1,8 +1,5 @@
-import { Injectable } from '@angular/core';
-import { HttpParams } from '@angular/common/http';
 import { Model } from 'src/app/model';
 import { Obj } from 'src/app/model/obj';
-import { HttpService } from 'src/app/service/http.service';
 
 export type MatchingKwdPvtAttributes = {
   id: string;

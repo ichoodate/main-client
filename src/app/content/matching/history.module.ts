@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { MatchingHistoryContentComponent } from './history.component';
 import { CardContainerModule } from 'src/app/element/card/container.module';
+import { MatchingHistoryContentComponent } from './history.component';
 
 const routes: Routes = [
   {

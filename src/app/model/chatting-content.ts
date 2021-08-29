@@ -1,9 +1,6 @@
-import { Injectable } from '@angular/core';
-import { HttpParams } from '@angular/common/http';
 import { Model } from 'src/app/model';
 import { Match } from 'src/app/model/match';
 import { User } from 'src/app/model/user';
-import { HttpService } from 'src/app/service/http.service';
 
 export type ChattingContentAttributes = {
   id: string;

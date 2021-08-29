@@ -1,5 +1,5 @@
-import * as _ from 'lodash';
 import { Component } from '@angular/core';
+import * as _ from 'lodash';
 import { User } from 'src/app/model/user';
 
 @Component({
