@@ -16,7 +16,7 @@ export class ProfileSectionShowCareerComponent
   extends ProfileSectionShowComponent
   implements OnInit
 {
-  public careers: Career[];
+  public careers: Career[] = [];
 
   public ngOnInit() {
     this.careers = this.shared.careers;

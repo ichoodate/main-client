@@ -13,7 +13,7 @@ export class ProfileSectionShowWeightRangeComponent
   extends ProfileSectionShowComponent
   implements OnInit
 {
-  public weightRange: WeightRange;
+  public weightRange: WeightRange | undefined;
 
   public ngOnInit() {
     this.weightRange = this.shared.weightRange;

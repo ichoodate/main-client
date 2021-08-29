@@ -23,8 +23,8 @@ export class ProfileSectionEditResidenceComponent
     Validators.requiredTrue,
   ]);
   protected residenceStateCtrl: FormControl = new FormControl();
-  public countryList: Country[];
-  public stateList: State[];
+  public countryList: Country[] = [];
+  public stateList: State[] = [];
 
   public ngOnInit() {
     this.form.addControl('residenceCountry', this.residenceCountryCtrl);

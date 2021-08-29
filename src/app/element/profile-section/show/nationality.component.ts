@@ -14,13 +14,13 @@ export class ProfileSectionShowNationalityComponent
   extends ProfileSectionShowComponent
   implements OnInit
 {
-  public nationality: Nationality;
-  public country: Country;
+  public nationality: Nationality | undefined;
+  public country: Country | undefined;
 
   public ngOnInit() {
     this.nationality = this.shared.nationality;
     this.country =
-      this.nationality && <Country>this.nationality.getRelation('country');
+      this.nationality && <Country>this.nationality.getRelations().country;
   }
 
   public static setUp$(data: Data) {

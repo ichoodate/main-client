@@ -12,9 +12,7 @@
     <button
       class="btn btn-primary ml-auto"
       *ngIf="isEditable() && isEditMode()"
-      [disabled]="
-        isLoading() || component.form.invalid || component.form.pristine
-      "
+      [disabled]="isLoading() || getForm().invalid || getForm().pristine"
       (click)="confirm()"
     >
       <i class="far fa-check-circle"></i>&nbsp;<span i18n="@@change-btn"

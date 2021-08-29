@@ -19,7 +19,7 @@ export class ProfileSectionEditReligionComponent
   protected religionCtrl: FormControl = new FormControl(undefined, [
     Validators.requiredTrue,
   ]);
-  public religionList: Religion[];
+  public religionList: Religion[] = [];
 
   public ngOnInit() {
     this.form.addControl('religion', this.religionCtrl);

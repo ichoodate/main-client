@@ -8,5 +8,9 @@ import { User } from 'src/app/model/user';
 })
 export class CardComponent {
   @Input()
-  public user: User;
+  public user: User | undefined;
+
+  public getUser(): User {
+    return this.user as User;
+  }
 }

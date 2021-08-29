@@ -3,9 +3,8 @@ import { Model } from 'src/app/model';
 export type CareerAttributes = {
   id: string;
   parent_id: string;
-  code: string;
+  name: string;
   type: string;
-  category: string;
 };
 
 export type CareerRelations = {};

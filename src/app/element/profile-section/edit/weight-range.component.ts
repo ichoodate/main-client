@@ -21,8 +21,8 @@ export class ProfileSectionEditWeightRangeComponent
     Validators.requiredTrue,
   ]);
   protected readonly minCtrl = new FormControl();
-  public weightRangeList: WeightRange[];
-  public minList: string[];
+  public weightRangeList: WeightRange[] = [];
+  public minList: string[] = [];
 
   public ngOnInit() {
     this.form.addControl('weightRange', this.weightRangeCtrl);

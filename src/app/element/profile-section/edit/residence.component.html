@@ -1,23 +1,23 @@
 <div class="form-group input-group btn-group">
   <select
-    [formControl]="form.get('residenceCountry')"
+    [formControl]="getFormCtrl('residenceCountry')"
     [compareWith]="compareWith"
     (change)="countryChange()"
   >
     <option
       *ngFor="let country of countryList"
-      [ngValue]="country.getRelation('residence')"
+      [ngValue]="country.getRelations().residence"
     >
       {{ country.getAttrs().name }}
     </option>
   </select>
   <select
-    [formControl]="form.get('residenceState')"
+    [formControl]="getFormCtrl('residenceState')"
     [compareWith]="compareWith"
   >
     <option
       *ngFor="let state of stateList"
-      [ngValue]="state.getRelation('residence')"
+      [ngValue]="state.getRelations().residence"
     >
       {{ state.getAttrs().name }}
     </option>

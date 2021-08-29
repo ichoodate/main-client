@@ -13,7 +13,7 @@ export class ProfileSectionShowReligionComponent
   extends ProfileSectionShowComponent
   implements OnInit
 {
-  public religion: Religion;
+  public religion: Religion | undefined;
 
   public ngOnInit() {
     this.religion = this.shared.religion;

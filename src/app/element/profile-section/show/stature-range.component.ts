@@ -13,7 +13,7 @@ export class ProfileSectionShowStatureRangeComponent
   extends ProfileSectionShowComponent
   implements OnInit
 {
-  public statureRange: StatureRange;
+  public statureRange: StatureRange | undefined;
 
   public ngOnInit() {
     this.statureRange = this.shared.statureRange;

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { UserIdealTypeKwdPvt } from 'src/app/model/user-ideal-type-kwd-pvt';
+import { IdealTypeKeyword } from 'src/app/model/ideal-type-keyword';
 import { ProfileDataService } from 'src/app/service/profile-data.service';
 
 @Component({
@@ -9,17 +9,36 @@ import { ProfileDataService } from 'src/app/service/profile-data.service';
   styleUrls: ['./profile.component.scss'],
 })
 export class IdealTypeProfileContentComponent {
-  public readonly data: {};
-  public readonly keywords: UserIdealTypeKwdPvt[];
+  public readonly keywords: IdealTypeKeyword[];
   public readonly profileType: string;
 
   public constructor(route: ActivatedRoute) {
     this.keywords = route.snapshot.data.keywords;
     this.profileType = route.snapshot.data.profileType;
-    this.data = ProfileDataService.getData(this.keywords);
   }
 
-  public getLabels() {
+  public getData(
+    label:
+      | 'age-range'
+      | 'hobby'
+      | 'nationality'
+      | 'religion'
+      | 'residence'
+      | 'stature-range'
+      | 'weight-range'
+  ) {
+    return ProfileDataService.getData(this.keywords)[label];
+  }
+
+  public getLabels(): [
+    'age-range',
+    'hobby',
+    'nationality',
+    'religion',
+    'residence',
+    'stature-range',
+    'weight-range'
+  ] {
     return [
       'age-range',
       'hobby',

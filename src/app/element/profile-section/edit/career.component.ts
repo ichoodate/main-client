@@ -19,13 +19,13 @@ export class ProfileSectionEditCareerComponent
   implements OnInit
 {
   protected readonly careersCtrl = new FormArray([]);
-  public careerLists: Career[][];
+  public careerLists: Career[][] = [];
 
   public ngOnInit() {
     this.careerLists = this.shared.careerLists;
     this.form.addControl('careers', this.careersCtrl);
 
-    if (this.shared.careers < this.careerLists) {
+    if (this.shared.careers < (this.careerLists as Career[][])) {
       this.shared.careers.push(null);
     }
 

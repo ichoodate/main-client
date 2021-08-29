@@ -117,16 +117,16 @@ const routes: Routes = [
   },
   {
     path: '**',
-    loadChildren: 'src/app/content/not-found.module#NotFoundContentModule',
+    loadChildren: () =>
+      import('src/app/content/not-found.module').then(
+        (m) => m.NotFoundContentModule
+      ),
   },
 ];
 
 @NgModule({
   bootstrap: [AppComponent],
-  declarations: [
-    AppComponent,
-    // MyProfileContentComponent
-  ],
+  declarations: [AppComponent],
   exports: [AppComponent],
   imports: [
     BrowserModule,

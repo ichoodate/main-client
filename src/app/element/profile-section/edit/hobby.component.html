@@ -4,7 +4,7 @@
     <input
       type="checkbox"
       [checked]="has(hobby)"
-      [formControl]="form.get('hobbies').at(i)"
+      [formControl]="this.getFormCtrl('hobbies', i)"
     />
   </div>
 </div>

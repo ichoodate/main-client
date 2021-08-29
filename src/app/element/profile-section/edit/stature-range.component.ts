@@ -21,8 +21,8 @@ export class ProfileSectionEditStatureRangeComponent
     Validators.requiredTrue,
   ]);
   protected readonly minCtrl = new FormControl();
-  public statureRangeList: StatureRange[];
-  public minList: string[];
+  public statureRangeList: StatureRange[] = [];
+  public minList: string[] = [];
 
   public ngOnInit() {
     this.form.addControl('statureRange', this.statureRangeCtrl);

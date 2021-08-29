@@ -8,5 +8,5 @@ import { User } from 'src/app/model/user';
 })
 export class CardContainerComponent {
   @Input()
-  public users: User[];
+  public users: User[] = [];
 }

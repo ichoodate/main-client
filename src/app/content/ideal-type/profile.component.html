@@ -10,7 +10,7 @@
         class="col-12 col-sm-6 col-md-4"
         *ngFor="let label of getLabels()"
         [label]="label"
-        [data]="data[label]"
+        [data]="getData(label)"
         [profileType]="profileType"
       >
       </profile-section-container>

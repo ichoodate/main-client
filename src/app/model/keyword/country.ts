@@ -1,4 +1,6 @@
 import { Model } from 'src/app/model';
+import { Nationality } from 'src/app/model/keyword/nationality';
+import { Residence } from 'src/app/model/keyword/residence';
 
 export type CountryAttributes = {
   id: string;
@@ -10,7 +12,10 @@ export type CountryAttributes = {
   language: string;
 };
 
-export type CountryRelations = {};
+export type CountryRelations = {
+  nationality: Nationality;
+  residence: Residence;
+};
 
 export class Country extends Model<CountryAttributes, CountryRelations> {
   protected readonly urlPath = 'keyword/countries';

@@ -5,18 +5,17 @@ import { map } from 'rxjs/operators';
 import { HttpService } from 'src/app/service/http.service';
 
 export type ModelAttribute = {
-  [k: string]: string | undefined;
+  [k: string]: string;
 };
 
 export type ModelRelations = {
   [k: string]:
     | Model<ModelAttribute, ModelRelations>
-    | Model<ModelAttribute, ModelRelations>[]
-    | undefined;
+    | Model<ModelAttribute, ModelRelations>[];
 };
 
 export class Model<T extends ModelAttribute, R extends ModelRelations> {
-  protected urlPath: string;
+  protected urlPath: string = '';
   protected attrs: T = <T>{};
   protected relations: R = <R>{};
 
@@ -34,23 +33,6 @@ export class Model<T extends ModelAttribute, R extends ModelRelations> {
 
   public setAttr(key: keyof ModelAttribute, value: string): void {
     _.set(this.attrs, key, value);
-  }
-
-  public getRelation(
-    key: keyof ModelRelations
-  ):
-    | Model<ModelAttribute, ModelRelations>
-    | Model<ModelAttribute, ModelRelations>[] {
-    const keys = _.split(key, '.');
-    const relation = this.relations[keys.shift()];
-
-    if (keys.length == 0) {
-      return relation;
-    } else if (relation instanceof Array) {
-      return _.map(relation, (model) => model.getRelation(keys.join('.')));
-    } else {
-      return relation.getRelation(keys.join('.'));
-    }
   }
 
   public getRelations(): R {

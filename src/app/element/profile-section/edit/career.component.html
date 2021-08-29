@@ -2,7 +2,7 @@
   <div *ngFor="let careerList of careerLists; let i = index">
     <select
       *ngIf="careerList.length !== 0"
-      [formControl]="form.get('careers').at(i)"
+      [formControl]="getFormCtrl('careers', i)"
       [compareWith]="compareWith"
       (change)="change(i)"
     >

@@ -21,8 +21,8 @@ export class ProfileSectionEditAgeRangeComponent
     Validators.requiredTrue,
   ]);
   protected readonly minCtrl = new FormControl();
-  public ageRangeList: AgeRange[];
-  public minList: string[];
+  public ageRangeList: AgeRange[] = [];
+  public minList: string[] = [];
 
   public ngOnInit() {
     this.form.addControl('ageRange', this.ageRangeCtrl);

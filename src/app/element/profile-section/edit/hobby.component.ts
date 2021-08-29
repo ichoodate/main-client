@@ -17,9 +17,9 @@ export class ProfileSectionEditHobbyComponent
   extends ProfileSectionEditComponent
   implements OnInit
 {
-  protected readonly hobbiesCtrl = new FormArray([]);
-  protected hobbies: Hobby[];
-  public hobbyList: Hobby[];
+  public readonly hobbiesCtrl = new FormArray([]);
+  protected hobbies: Hobby[] = [];
+  public hobbyList: Hobby[] = [];
 
   public ngOnInit() {
     this.form.addControl('hobbies', this.hobbiesCtrl);
@@ -52,10 +52,12 @@ export class ProfileSectionEditHobbyComponent
   }
 
   public submit$() {
-    const hobbies = _.chain(this.form.get('hobbies').value)
+    const hobbies = _.chain(this.form.get('hobbies')?.value)
       .pickBy()
       .keys()
-      .map((i: number) => this.hobbyList[i])
+      .map<Hobby>(((i: string) => {
+        return this.hobbyList[parseInt(i)];
+      }) as _.ListIterator<string, Hobby>)
       .value();
 
     return HttpService.api()

@@ -18,20 +18,22 @@ export class ProfileSectionShowResidenceComponent
   extends ProfileSectionShowComponent
   implements OnInit
 {
-  public residenceCountry: Residence;
-  public residenceState: Residence;
-  public country: Country;
-  public state: State;
+  public residenceCountry: Residence | undefined;
+  public residenceState: Residence | undefined;
+  public country: Country | undefined;
+  public state: State | undefined;
 
   public ngOnInit() {
     this.residenceCountry = this.shared.residenceCountry;
     this.residenceState = this.shared.residenceState;
     this.country =
       this.residenceCountry &&
-      <Country>this.residenceCountry.getRelation('related.concrete');
+      (this.residenceCountry.getRelations().relatedObj.getRelations()
+        .concrete as Country);
     this.state =
       this.residenceState &&
-      <State>this.residenceState.getRelation('related.concrete');
+      (this.residenceState.getRelations().relatedObj.getRelations()
+        .concrete as State);
   }
 
   public static getResidences$(

@@ -12,7 +12,7 @@ export class ProfileSectionShowNameComponent
   extends ProfileSectionShowComponent
   implements OnInit
 {
-  public name: string;
+  public name: string | undefined;
 
   public ngOnInit() {
     this.name = this.shared.name;

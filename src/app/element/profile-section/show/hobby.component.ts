@@ -13,7 +13,7 @@ export class ProfileSectionShowHobbyComponent
   extends ProfileSectionShowComponent
   implements OnInit
 {
-  public hobbies: Hobby[];
+  public hobbies: Hobby[] | undefined;
 
   public ngOnInit() {
     this.hobbies = this.shared.hobbies;

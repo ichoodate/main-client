@@ -14,7 +14,9 @@ import { ProfileSectionEditComponent } from 'src/app/element/profile-section/edi
 import { ProfileSectionShowComponent } from 'src/app/element/profile-section/show.component';
 
 export type Mode = 'show' | 'edit';
-
+export type ProfileSectionComponent =
+  | ProfileSectionEditComponent
+  | ProfileSectionShowComponent;
 @Component({
   selector: 'profile-section-container',
   templateUrl: './container.component.html',
@@ -22,17 +24,17 @@ export type Mode = 'show' | 'edit';
 })
 export class ProfileSectionContainerComponent implements OnInit {
   @Input()
-  public label: string;
+  public label: string = '';
   @Input()
-  private data: Object;
+  public data: Object = {};
   @Input()
-  private profileType: string;
+  public profileType: string = '';
   @ViewChild('container', { read: ViewContainerRef, static: false })
-  private container: ViewContainerRef;
-  public shared: Object;
+  private container: ViewContainerRef | undefined;
+  public shared: Object = {};
   private compiler: Compiler;
-  private component: ProfileSectionShowComponent | ProfileSectionEditComponent;
-  private mode: Mode;
+  public component: ProfileSectionComponent | undefined;
+  private mode: Mode = 'show';
   private loading = false;
   private isSetUp: { [k in Mode]: boolean } = { show: false, edit: false };
 
@@ -90,6 +92,18 @@ export class ProfileSectionContainerComponent implements OnInit {
     return this.loading;
   }
 
+  public getForm() {
+    return (this.component as ProfileSectionEditComponent).form;
+  }
+
+  protected getComponent(): ProfileSectionComponent {
+    return this.component as ProfileSectionComponent;
+  }
+
+  protected getContainer(): ViewContainerRef {
+    return this.container as ViewContainerRef;
+  }
+
   private getModuleInfo(label: string) {
     const studlyLabel = _.upperFirst(_.camelCase(label));
 
@@ -129,15 +143,16 @@ export class ProfileSectionContainerComponent implements OnInit {
         return forkJoin(...observs);
       }),
       map(([promise]) => {
-        this.container.clear();
+        this.getContainer().clear();
 
         const cmpFactories = promise.componentFactories;
         const cmpFactory = <ComponentFactory<any>>(
           _.find(cmpFactories, ['componentType.name', cmpName])
         );
 
-        this.component = this.container.createComponent(cmpFactory).instance;
-        this.component.shared = this.shared;
+        this.component =
+          this.getContainer().createComponent(cmpFactory).instance;
+        this.getComponent().shared = this.shared;
 
         if (mode == 'edit') {
           (<ProfileSectionEditComponent>this.component).profileType =

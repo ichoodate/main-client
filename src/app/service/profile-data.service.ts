@@ -1,17 +1,17 @@
 import { Injectable } from '@angular/core';
 import * as _ from 'lodash';
+import { IdealTypeKeyword } from 'src/app/model/ideal-type-keyword';
 import { Obj } from 'src/app/model/obj';
 import { User } from 'src/app/model/user';
-import { UserIdealTypeKwdPvt } from 'src/app/model/user-ideal-type-kwd-pvt';
-import { UserSelfKwdPvt } from 'src/app/model/user-self-kwd-pvt';
+import { UserKeyword } from 'src/app/model/user-keyword';
 
-type UserKwdPvt = UserSelfKwdPvt | UserIdealTypeKwdPvt;
+type Keyword = UserKeyword | IdealTypeKeyword;
 
 @Injectable({
   providedIn: 'root',
 })
 export class ProfileDataService {
-  public static getData(keywords: UserKwdPvt[], user?: User) {
+  public static getData(keywords: Keyword[], user?: User) {
     const data = _.chain({
       user: user,
       keywords: this.transformKeywords(keywords),
@@ -54,9 +54,9 @@ export class ProfileDataService {
     };
   }
 
-  private static transformKeywords(keywords: UserKwdPvt[]) {
+  private static transformKeywords(keywords: Keyword[]) {
     return _.chain(keywords)
-      .map((userKwdPvt: UserKwdPvt) => userKwdPvt.getRelations().keyword)
+      .map((userKeyword: Keyword) => userKeyword.getRelations().keywordObj)
       .groupBy((obj: Obj) => obj.getAttrs().type)
       .mapValues((collect: Obj[]) => {
         return _.chain(collect)

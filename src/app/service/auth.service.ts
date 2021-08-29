@@ -11,7 +11,6 @@ import { HttpService } from 'src/app/service/http.service';
 })
 export class AuthService {
   public signedIn: boolean;
-  private token: string;
   private authUser: User | null;
   private router: Router;
   private http: HttpClient;

@@ -13,7 +13,7 @@ export class ProfileSectionShowAgeRangeComponent
   extends ProfileSectionShowComponent
   implements OnInit
 {
-  public ageRange: AgeRange;
+  public ageRange: AgeRange | undefined;
 
   public ngOnInit() {
     this.ageRange = this.shared.ageRange;

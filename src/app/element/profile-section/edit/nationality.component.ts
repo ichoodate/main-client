@@ -20,7 +20,7 @@ export class ProfileSectionEditNationalityComponent
   protected nationalityCtrl: FormControl = new FormControl(undefined, [
     Validators.requiredTrue,
   ]);
-  public countryList: Country[];
+  public countryList: Country[] = [];
 
   public ngOnInit() {
     this.form.addControl('nationality', this.nationalityCtrl);
