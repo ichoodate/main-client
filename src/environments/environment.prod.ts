@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  apiUrl: 'http://ichoodate.appspot.com/api',
+  apiUrl: 'https://api-dot-ichoodate.appspot.com',
 };
