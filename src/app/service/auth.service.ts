@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Router } from '@angular/router';
-import { Observable, of } from 'rxjs';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Observable, ObservableInput, of } from 'rxjs';
 import { map, switchMap } from 'rxjs/operators';
 import { User } from 'src/app/model/user';
 import { HttpService } from 'src/app/service/http.service';
@@ -56,15 +56,17 @@ export class AuthService {
 
   public signIn(credentials: { email: string; password: string }): void {
     this.http
-      .post('auth/sign-in', credentials)
+      .post<string>('auth/sign-in', credentials)
       .pipe(
-        switchMap(() => {
-          return this.isSignIn$();
+        switchMap((result: string): ObservableInput<User> => {
+          localStorage.setItem('ichoodate-auth-token', result);
+          return HttpService.api().get<User>('auth/user');
         })
       )
-      .subscribe((result: boolean) => {
-        if (result) {
-          window.location.reload();
+      .subscribe((user: User) => {
+        this.authUser = user;
+        if (user) {
+          this.router.navigate(['/']);
         }
       });
   }

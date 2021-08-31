@@ -15,10 +15,17 @@ export class AuthTokenApiInterceptor implements HttpInterceptor {
     request: HttpRequest<any>,
     next: HttpHandler
   ): Observable<HttpEvent<any>> {
-    return next.handle(
-      request.clone({
-        withCredentials: true,
-      })
-    );
+    if (localStorage.getItem('ichoodate-auth-token')) {
+      return next.handle(
+        request.clone({
+          headers: request.headers.set(
+            'Authorization',
+            'Bearer ' + localStorage.getItem('ichoodate-auth-token')
+          ),
+        })
+      );
+    }
+
+    return next.handle(request);
   }
 }
