@@ -102,10 +102,10 @@ export class ProfileSectionEditResidenceComponent
 
             return forkJoin(
               this.shared.residenceCountry.load$({
-                expands: 'related.concrete',
+                expands: 'relatedObj.concrete',
               }),
               this.shared.residenceState.load$({
-                expands: 'related.concrete',
+                expands: 'relatedObj.concrete',
               })
             );
           })
@@ -122,7 +122,7 @@ export class ProfileSectionEditResidenceComponent
             this.shared.countryList = this.countryList;
 
             return this.shared.residenceCountry.load$({
-              expands: 'related.concrete',
+              expands: 'relatedObj.concrete',
             });
           })
         );

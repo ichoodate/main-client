@@ -32,7 +32,7 @@ const routes: Routes = [
       useValue: () =>
         HttpService.api().get('ideal-type-keywords', {
           params: {
-            expands: 'keyword.concrete',
+            expands: 'keywordObj.concrete',
           },
         }),
     },

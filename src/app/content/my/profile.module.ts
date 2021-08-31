@@ -35,7 +35,7 @@ const routes: Routes = [
             switchMap((user: User) => {
               return HttpService.api().get('user-keywords', {
                 params: {
-                  expands: 'keyword.concrete',
+                  expands: 'keywordObj.concrete',
                 },
               });
             })

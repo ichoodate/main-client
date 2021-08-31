@@ -28,7 +28,7 @@ const routes: Routes = [
       useValue: (route: ActivatedRoute) =>
         HttpService.api().get('user-keywords', {
           params: {
-            expands: 'keyword.concrete',
+            expands: 'keywordObj.concrete',
           },
         }),
     },

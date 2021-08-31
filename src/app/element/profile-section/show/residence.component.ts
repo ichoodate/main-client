@@ -66,15 +66,15 @@ export class ProfileSectionShowResidenceComponent
         if (data.residenceState) {
           return forkJoin(
             data.residenceCountry.load$({
-              expands: 'related.concrete',
+              expands: 'relatedObj.concrete',
             }),
             data.residenceState.load$({
-              expands: 'related.concrete',
+              expands: 'relatedObj.concrete',
             })
           );
         } else if (data.residenceCountry) {
           return data.residenceCountry.load$({
-            expands: 'related.concrete',
+            expands: 'relatedObj.concrete',
           });
         }
       })
