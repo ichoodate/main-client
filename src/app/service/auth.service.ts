@@ -11,11 +11,13 @@ import { HttpService } from 'src/app/service/http.service';
 })
 export class AuthService {
   public signedIn: boolean;
+  public route: ActivatedRoute;
   private authUser: User | null;
   private router: Router;
   private http: HttpClient;
 
-  constructor(router: Router) {
+  constructor(route: ActivatedRoute, router: Router) {
+    this.route = route;
     this.router = router;
     this.http = HttpService.api();
     this.authUser = null;
@@ -66,7 +68,7 @@ export class AuthService {
       .subscribe((user: User) => {
         this.authUser = user;
         if (user) {
-          this.router.navigate(['/']);
+          this.goPreviousPage();
         }
       });
   }
@@ -76,7 +78,7 @@ export class AuthService {
       this.signedIn = false;
       this.authUser = null;
 
-      window.location.reload();
+      this.router.navigate(['/']);
     });
   }
 
@@ -88,5 +90,26 @@ export class AuthService {
       .subscribe((attrs: {}) => {
         this.router.navigate(['/']);
       });
+  }
+
+  public goPreviousPage() {
+    const params: Record<string, unknown> = {};
+    const referrer = this.route.snapshot.queryParams.referrer
+      ? this.route.snapshot.queryParams.referrer
+      : '/';
+    const path = referrer.match('.*(?=(\\?))')
+      ? referrer.match('.*(?=(\\?))')[0]
+      : referrer;
+
+    (referrer.match('(?<=(\\?)).*')
+      ? referrer.match('(?<=(\\?)).*')[0].split('&')
+      : []
+    ).forEach((str: string) => {
+      params[str.split('=')[0]] = str.split('=')[1];
+    });
+
+    this.router.navigate([path], {
+      queryParams: params,
+    });
   }
 }
