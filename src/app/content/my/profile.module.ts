@@ -33,14 +33,11 @@ const routes: Routes = [
         return () =>
           user$$().pipe(
             switchMap((user: User) => {
-              return HttpService.api().get(
-                'users/' + user.getAttrs().id + '/self-keywords',
-                {
-                  params: {
-                    expands: 'keyword.concrete',
-                  },
-                }
-              );
+              return HttpService.api().get('user-keywords', {
+                params: {
+                  expands: 'keyword.concrete',
+                },
+              });
             })
           );
       },

@@ -26,14 +26,11 @@ const routes: Routes = [
     {
       provide: 'keywords$$',
       useValue: (route: ActivatedRoute) =>
-        HttpService.api().get(
-          'users/' + route.snapshot.params.id + '/self-keywords',
-          {
-            params: {
-              expands: 'keyword.concrete',
-            },
-          }
-        ),
+        HttpService.api().get('user-keywords', {
+          params: {
+            expands: 'keyword.concrete',
+          },
+        }),
     },
     {
       provide: 'user$$',
