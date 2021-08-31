@@ -21,8 +21,15 @@ export class JsonifyApiInterceptor implements HttpInterceptor {
       map((event: HttpEvent<any>) => {
         let response = <HttpResponse<any>>event;
         let body = response.body;
+        let isJson = true;
 
-        if (typeof body == 'string') {
+        try {
+          JSON.parse(body);
+        } catch (e) {
+          isJson = false;
+        }
+
+        if (isJson) {
           response = response.clone({
             body: JSON.parse(body),
           });
