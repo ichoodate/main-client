@@ -2,7 +2,8 @@ import { Model } from 'src/app/model';
 
 export type StatureAttributes = {
   id: string;
-  type: string;
+  cm: string;
+  inch: string;
 };
 
 export type StatureRelations = {};

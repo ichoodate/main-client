@@ -17,18 +17,29 @@ export class ProfileSectionEditStatureComponent
   implements OnInit
 {
   protected statureCtrl: FormControl = new FormControl(undefined, [
-    Validators.requiredTrue,
+    Validators.required,
   ]);
+  public statureList: Stature[] = [];
 
   public ngOnInit() {
-    '...';
+    this.form.addControl('stature', this.statureCtrl);
+    this.statureCtrl.setValue(this.shared.stature);
+    this.statureList = this.shared.statureList;
   }
 
-  public static setUp$(data: Data) {}
+  public static setUp$(data: Data) {
+    return HttpService.api()
+      .get<Stature[]>('keyword/statures', {})
+      .pipe(
+        map((statureList: Stature[]) => {
+          data.statureList = statureList;
+        })
+      );
+  }
 
   public submit$() {
     return HttpService.api()
-      .post<Stature>(this.profileType + '-keyword/stature', {
+      .post<Stature>(this.profileType + '-keyword/statures', {
         keyword_id: this.statureCtrl.value.getAttrs().id,
       })
       .pipe(

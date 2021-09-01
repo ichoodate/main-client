@@ -18,7 +18,7 @@ export class ProfileSectionEditNationalityComponent
   implements OnInit
 {
   protected nationalityCtrl: FormControl = new FormControl(undefined, [
-    Validators.requiredTrue,
+    Validators.required,
   ]);
   public countryList: Country[] = [];
 

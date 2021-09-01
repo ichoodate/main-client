@@ -1,4 +1,4 @@
 <div *ngIf="stature">
-  {{ stature.getAttrs().type }}
+  {{ stature.getAttrs().cm + "cm (" + stature.getAttrs().inch + "inch)" }}
 </div>
 <div *ngIf="!stature">stature is not exist</div>

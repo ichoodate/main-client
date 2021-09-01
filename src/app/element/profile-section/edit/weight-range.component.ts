@@ -18,7 +18,7 @@ export class ProfileSectionEditWeightRangeComponent
   implements OnInit
 {
   protected readonly weightRangeCtrl = new FormControl(undefined, [
-    Validators.requiredTrue,
+    Validators.required,
   ]);
   protected readonly minCtrl = new FormControl();
   public weightRangeList: WeightRange[] = [];

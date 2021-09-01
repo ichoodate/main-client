@@ -13,7 +13,7 @@ const routes: Routes = [
     path: '',
     component: MyProfileContentComponent,
     data: {
-      profileType: 'self',
+      profileType: 'user',
     },
     resolve: {
       keywords: 'keywords$$',

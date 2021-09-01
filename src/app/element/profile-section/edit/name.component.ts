@@ -16,9 +16,7 @@ export class ProfileSectionEditNameComponent
   extends ProfileSectionEditComponent
   implements OnInit
 {
-  protected nameCtrl: FormControl = new FormControl('', [
-    Validators.requiredTrue,
-  ]);
+  protected nameCtrl: FormControl = new FormControl('', [Validators.required]);
 
   public ngOnInit() {
     this.form.addControl('name', this.nameCtrl);
@@ -29,7 +27,7 @@ export class ProfileSectionEditNameComponent
 
   public submit$() {
     return HttpService.api()
-      .post<User>('/auth/user', {
+      .patch<User>('auth/user', {
         name: this.nameCtrl.value,
       })
       .pipe(

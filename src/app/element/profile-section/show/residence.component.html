@@ -1,7 +1,15 @@
-<div *ngIf="country">
-  {{ country.getAttrs().name }}
+<div *ngIf="residenceCountry">
+  {{
+    residenceCountry
+      .getRelations()
+      .relatedObj.getRelations()
+      .concrete.getAttrs().name
+  }}
 </div>
-<div *ngIf="state">
-  {{ state.getAttrs().name }}
+<div *ngIf="residenceState">
+  {{
+    residenceState.getRelations().relatedObj.getRelations().concrete.getAttrs()
+      .name
+  }}
 </div>
-<div *ngIf="!country">residence is not exist</div>
+<div *ngIf="!residenceCountry">residence is not exist</div>

@@ -18,7 +18,7 @@ export class ProfileSectionEditStatureRangeComponent
   implements OnInit
 {
   protected readonly statureRangeCtrl = new FormControl(undefined, [
-    Validators.requiredTrue,
+    Validators.required,
   ]);
   protected readonly minCtrl = new FormControl();
   public statureRangeList: StatureRange[] = [];

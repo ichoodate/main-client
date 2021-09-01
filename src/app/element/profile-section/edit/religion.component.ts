@@ -17,7 +17,7 @@ export class ProfileSectionEditReligionComponent
   implements OnInit
 {
   protected religionCtrl: FormControl = new FormControl(undefined, [
-    Validators.requiredTrue,
+    Validators.required,
   ]);
   public religionList: Religion[] = [];
 

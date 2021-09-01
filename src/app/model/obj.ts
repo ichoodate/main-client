@@ -6,7 +6,7 @@ export type ObjAttributes = {
 };
 
 export type ObjRelations = {
-  concrete?: Model<ModelAttribute, ModelRelations>;
+  concrete: Model<ModelAttribute, ModelRelations>;
 };
 
 export class Obj extends Model<ObjAttributes, ObjRelations> {}

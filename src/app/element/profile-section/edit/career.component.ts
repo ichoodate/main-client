@@ -20,20 +20,21 @@ export class ProfileSectionEditCareerComponent
 {
   protected readonly careersCtrl = new FormArray([]);
   public careerLists: Career[][] = [];
+  public careers: Array<Career | null> = [];
 
   public ngOnInit() {
     this.careerLists = this.shared.careerLists;
+    this.careers = this.shared.careers;
     this.form.addControl('careers', this.careersCtrl);
 
-    if (this.shared.careers < (this.careerLists as Career[][])) {
-      this.shared.careers.push(null);
+    if (this.careers.length < this.careerLists.length) {
+      this.careers.push(null);
     }
 
-    this.shared.careers.forEach((career: Career) => {
+    this.careers.forEach((career) => {
       (<FormArray>this.form.get('careers')).push(new FormControl(career));
     });
-
-    this.careersCtrl.at(0).setValidators([Validators.requiredTrue]);
+    this.careersCtrl.at(0).setValidators([Validators.required]);
   }
 
   public change(i: number) {
@@ -92,12 +93,12 @@ export class ProfileSectionEditCareerComponent
   }
 
   public submit$() {
-    const careers = _.clone(this.careersCtrl.value);
-    let last = careers.pop();
+    const careers = _.clone(this.careersCtrl.getRawValue());
+    let last;
 
-    while (!last) {
+    do {
       last = careers.pop();
-    }
+    } while (!last);
 
     return HttpService.api()
       .post<Career>(this.profileType + '-keyword/careers', {
@@ -107,7 +108,7 @@ export class ProfileSectionEditCareerComponent
         map((career: Career) => {
           this.shared.career = career;
           this.shared.careerLists = this.careerLists;
-          this.shared.careers = this.careersCtrl.value;
+          this.shared.careers = _.filter(this.careersCtrl.getRawValue());
         })
       );
   }

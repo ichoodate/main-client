@@ -20,7 +20,7 @@ export class ProfileSectionEditResidenceComponent
   implements OnInit
 {
   protected residenceCountryCtrl: FormControl = new FormControl(undefined, [
-    Validators.requiredTrue,
+    Validators.required,
   ]);
   protected residenceStateCtrl: FormControl = new FormControl();
   public countryList: Country[] = [];
@@ -37,7 +37,6 @@ export class ProfileSectionEditResidenceComponent
 
   public countryChange() {
     const residenceCountry = this.residenceCountryCtrl.value;
-    const self = ProfileSectionEditResidenceComponent;
 
     HttpService.api()
       .get<State[]>('keyword/states', {
@@ -94,7 +93,6 @@ export class ProfileSectionEditResidenceComponent
         })
         .pipe(
           switchMap(() => {
-            this.shared.residence = this.residenceStateCtrl.value;
             this.shared.residenceState = this.residenceStateCtrl.value;
             this.shared.stateList = this.stateList;
             this.shared.residenceCountry = this.residenceCountryCtrl.value;
@@ -117,7 +115,6 @@ export class ProfileSectionEditResidenceComponent
         })
         .pipe(
           switchMap(() => {
-            this.shared.residence = this.residenceCountryCtrl.value;
             this.shared.residenceCountry = this.residenceCountryCtrl.value;
             this.shared.countryList = this.countryList;
 

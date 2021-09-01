@@ -1,1 +1,7 @@
-<div class="form-group input-group btn-group"></div>
+<div class="form-group input-group btn-group">
+  <select [formControl]="getFormCtrl('weight')" [compareWith]="compareWith">
+    <option *ngFor="let weight of weightList" [ngValue]="weight">
+      {{ weight.getAttrs().type }}
+    </option>
+  </select>
+</div>

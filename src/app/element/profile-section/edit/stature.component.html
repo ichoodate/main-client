@@ -1,1 +1,7 @@
-<div class="form-group input-group btn-group"></div>
+<div class="form-group input-group btn-group">
+  <select [formControl]="getFormCtrl('stature')" [compareWith]="compareWith">
+    <option *ngFor="let stature of statureList" [ngValue]="stature">
+      {{ stature.getAttrs().cm + "cm (" + stature.getAttrs().inch + "inch)" }}
+    </option>
+  </select>
+</div>

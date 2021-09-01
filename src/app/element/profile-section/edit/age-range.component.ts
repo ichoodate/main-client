@@ -18,7 +18,7 @@ export class ProfileSectionEditAgeRangeComponent
   implements OnInit
 {
   protected readonly ageRangeCtrl = new FormControl(undefined, [
-    Validators.requiredTrue,
+    Validators.required,
   ]);
   protected readonly minCtrl = new FormControl();
   public ageRangeList: AgeRange[] = [];

@@ -17,18 +17,29 @@ export class ProfileSectionEditWeightComponent
   implements OnInit
 {
   protected weightCtrl: FormControl = new FormControl(undefined, [
-    Validators.requiredTrue,
+    Validators.required,
   ]);
+  public weightList: Weight[] = [];
 
   public ngOnInit() {
-    '...';
+    this.form.addControl('weight', this.weightCtrl);
+    this.weightCtrl.setValue(this.shared.weight);
+    this.weightList = this.shared.weightList;
   }
 
-  public static setUp$(data: Data) {}
+  public static setUp$(data: Data) {
+    return HttpService.api()
+      .get<Weight[]>('keyword/weights', {})
+      .pipe(
+        map((weightList: Weight[]) => {
+          data.weightList = weightList;
+        })
+      );
+  }
 
   public submit$() {
     return HttpService.api()
-      .post<Weight>(this.profileType + '-keyword/weight', {
+      .post<Weight>(this.profileType + '-keyword/weights', {
         keyword_id: this.weightCtrl.value.getAttrs().id,
       })
       .pipe(
