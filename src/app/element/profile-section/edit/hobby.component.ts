@@ -4,7 +4,7 @@ import * as _ from 'lodash';
 import { map } from 'rxjs/operators';
 import {
   Data,
-  ProfileSectionEditComponent,
+  ProfileSectionEditComponent
 } from 'src/app/element/profile-section/edit.component';
 import { Hobby } from 'src/app/model/keyword/hobby';
 import { HttpService } from 'src/app/service/http.service';
@@ -26,19 +26,12 @@ export class ProfileSectionEditHobbyComponent
     this.hobbies = this.shared.hobbies;
     this.hobbyList = this.shared.hobbyList;
     this.hobbyList.forEach((hobby: Hobby) => {
-      this.hobbiesCtrl.push(new FormControl());
+      const id = hobby.getAttrs().id;
+      const has =
+        this.hobbies.map((hobby: Hobby) => hobby.getAttrs().id).indexOf(id) !==
+        -1;
+      this.hobbiesCtrl.push(new FormControl(has));
     });
-  }
-
-  public has(hobby: Hobby): boolean {
-    const id = hobby.getAttrs().id;
-
-    return (
-      _.chain(this.hobbies)
-        .map((hobby: Hobby) => hobby.getAttrs().id)
-        .indexOf(id)
-        .value() !== -1
-    );
   }
 
   public static setUp$(data: Data) {
