@@ -1,8 +1,15 @@
-import { HttpParams } from '@angular/common/http';
 import * as _ from 'lodash';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { HttpService } from 'src/app/service/http.service';
+
+type HttpParams = {
+  [param: string]:
+    | string
+    | number
+    | boolean
+    | readonly (string | number | boolean)[];
+};
 
 export type ModelAttribute = {
   [k: string]: string;
@@ -46,6 +53,10 @@ export class Model<T extends ModelAttribute, R extends ModelRelations> {
       | Model<ModelAttribute, ModelRelations>[]
   ): void {
     _.set(this.relations, key, value);
+  }
+
+  public unsetRelation(key: keyof ModelRelations): void {
+    _.unset(this.relations, key);
   }
 
   public load$(params: HttpParams): Observable<any> {

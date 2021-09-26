@@ -31,7 +31,7 @@ export class ProfileSectionEditNameComponent
         name: this.nameCtrl.value,
       })
       .pipe(
-        map((auth: User) => {
+        map(() => {
           this.shared.name = this.nameCtrl.value;
         })
       );

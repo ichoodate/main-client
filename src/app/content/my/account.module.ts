@@ -1,3 +1,4 @@
+import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { MyAccountContentComponent } from './account.component';
@@ -12,6 +13,6 @@ const routes: Routes = [
 @NgModule({
   declarations: [MyAccountContentComponent],
   exports: [MyAccountContentComponent],
-  imports: [RouterModule.forChild(routes)],
+  imports: [CommonModule, RouterModule.forChild(routes)],
 })
 export class MyAccountContentModule {}

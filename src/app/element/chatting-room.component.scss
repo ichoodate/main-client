@@ -1,0 +1,13 @@
+@media (orientation: landscape) {
+  #chat-msg-list {
+    height: 37vmax;
+    overflow-y: auto;
+  }
+}
+
+@media (orientation: portrait) {
+  #chat-msg-list {
+    height: 80vmax;
+    overflow-y: auto;
+  }
+}

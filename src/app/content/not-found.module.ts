@@ -1,3 +1,4 @@
+import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { NotFoundContentComponent } from './not-found.component';
@@ -12,6 +13,6 @@ const routes: Routes = [
 @NgModule({
   declarations: [NotFoundContentComponent],
   exports: [NotFoundContentComponent],
-  imports: [RouterModule.forChild(routes)],
+  imports: [CommonModule, RouterModule.forChild(routes)],
 })
 export class NotFoundContentModule {}

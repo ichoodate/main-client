@@ -3,4 +3,6 @@
     <h1 class="display-5 mb-4">오늘의 이상형 매칭</h1>
   </div>
 </div>
-<card-container [users]="getUsers()"> </card-container>
+<div *ngIf="getGroup()">
+  <card-group [group]="getGroup()"></card-group>
+</div>

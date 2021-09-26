@@ -10,6 +10,7 @@ export type MatchAttributes = {
 export type MatchRelations = {
   man: User;
   woman: User;
+  user: User;
 };
 
 export class Match extends Model<MatchAttributes, MatchRelations> {

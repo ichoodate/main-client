@@ -1,4 +1,5 @@
 import { Model } from 'src/app/model';
+import { Card } from 'src/app/model/card';
 import { User } from 'src/app/model/user';
 
 export type CardGroupAttributes = {
@@ -9,6 +10,7 @@ export type CardGroupAttributes = {
 };
 
 export type CardGroupRelations = {
+  cards: Card[];
   user: User;
 };
 

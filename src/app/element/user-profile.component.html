@@ -8,6 +8,24 @@
           </div>
           <div class="col-8">
             <div class="row">
+              <div class="col-12 text-right pr-3" *ngIf="cardFlip">
+                <button
+                  type="button"
+                  (click)="addFriend()"
+                  class="btn btn-primary mr-3"
+                  *ngIf="!hasFriend()"
+                >
+                  Add Friend
+                </button>
+                <button
+                  type="button"
+                  (click)="removeFriend()"
+                  class="btn btn-primary mr-3"
+                  *ngIf="hasFriend()"
+                >
+                  Remove Friend
+                </button>
+              </div>
               <profile-section-container
                 class="col-12"
                 *ngFor="let label of getTopLabels()"

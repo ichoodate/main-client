@@ -1,0 +1,10 @@
+<div id="card-container-wrap" class="container-fluid" *ngIf="group">
+  <div class="row justify-content-center">
+    <div class="card-outer p-3" *ngFor="let card of group.getRelations().cards">
+      <div class="front"></div>
+      <div class="back">
+        <card [user]="card.getRelations().showner"></card>
+      </div>
+    </div>
+  </div>
+</div>

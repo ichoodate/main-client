@@ -9,6 +9,8 @@ import {
   RouterStateSnapshot,
 } from '@angular/router';
 import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
+import { User } from 'src/app/model/user';
 import { AuthService } from './auth.service';
 
 @Injectable({
@@ -17,7 +19,7 @@ import { AuthService } from './auth.service';
 export class AuthGuardService
   implements CanActivate, CanActivateChild, CanLoad
 {
-  constructor(private auth: AuthService, private router: Router) {}
+  constructor(private router: Router) {}
 
   public canActivate(
     route: ActivatedRouteSnapshot,
@@ -38,14 +40,15 @@ export class AuthGuardService
   }
 
   public requestedSignIn$(): Observable<boolean> {
-    let observ = this.auth.isSignIn$();
+    return AuthService.user$().pipe(
+      map((result: User | null) => {
+        if (!result) {
+          this.router.navigate(['/auth/sign-in']);
+          return false;
+        }
 
-    observ.subscribe((result: boolean) => {
-      if (!result) {
-        this.router.navigate(['/auth/sign-in']);
-      }
-    });
-
-    return observ;
+        return true;
+      })
+    );
   }
 }

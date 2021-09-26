@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { AuthService } from 'src/app/service/auth.service';
 
 @Component({
@@ -7,7 +8,8 @@ import { AuthService } from 'src/app/service/auth.service';
   styleUrls: ['./sign-out.component.scss'],
 })
 export class AuthSignOutContentComponent {
-  constructor(private auth: AuthService) {
-    this.auth.signOut();
+  constructor(router: Router) {
+    AuthService.signOut();
+    router.navigate(['/']);
   }
 }

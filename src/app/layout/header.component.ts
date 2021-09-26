@@ -7,5 +7,9 @@ import { AuthService } from 'src/app/service/auth.service';
   styleUrls: ['./header.component.scss'],
 })
 export class LayoutHeaderComponent {
-  constructor(private auth: AuthService) {}
+  public auth: typeof AuthService;
+
+  constructor() {
+    this.auth = AuthService;
+  }
 }

@@ -1,6 +1,7 @@
+import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { CardContainerModule } from 'src/app/element/card/container.module';
+import { CardModule } from 'src/app/element/card.module';
 import { UserListContentComponent } from './list.component';
 
 const routes: Routes = [
@@ -13,6 +14,6 @@ const routes: Routes = [
 @NgModule({
   declarations: [UserListContentComponent],
   exports: [UserListContentComponent],
-  imports: [RouterModule.forChild(routes), CardContainerModule],
+  imports: [CardModule, CommonModule, RouterModule.forChild(routes)],
 })
 export class UserListContentModule {}

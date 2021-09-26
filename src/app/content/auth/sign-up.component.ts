@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
-import { AuthService } from 'src/app/service/auth.service';
+import { ActivatedRoute, Router } from '@angular/router';
+import { HttpService } from 'src/app/service/http.service';
 
 @Component({
   selector: 'sign-up-content',
@@ -9,7 +9,8 @@ import { AuthService } from 'src/app/service/auth.service';
   styleUrls: ['./sign-up.component.scss'],
 })
 export class AuthSignUpContentComponent {
-  private auth: AuthService;
+  private router: Router;
+
   public form = new FormGroup({
     email: new FormControl(''),
     password: new FormControl(''),
@@ -17,11 +18,17 @@ export class AuthSignUpContentComponent {
     gender: new FormControl(''),
   });
 
-  constructor(auth: AuthService, route: ActivatedRoute) {
-    this.auth = auth;
+  constructor(route: ActivatedRoute, router: Router) {
+    this.router = router;
   }
 
   public signUp() {
-    this.auth.signUp(this.form.value);
+    HttpService.api()
+      .post('auth/sign-up', {
+        params: this.form.value,
+      })
+      .subscribe((attrs: {}) => {
+        this.router.navigate(['/']);
+      });
   }
 }

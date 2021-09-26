@@ -1,0 +1,47 @@
+<div class="container mt-3">
+  <div class="row">
+    <div class="col-3 px-0 border-right">
+      <div id="chat-user-list" class="list-group">
+        <div
+          class="list-group-item rounded-0"
+          [ngClass]="{ active: chat.getAttrs().match_id == match_id }"
+          (click)="match_id = chat.getAttrs().match_id"
+          *ngFor="let chat of chats"
+        >
+          <div class="row">
+            <img
+              class="col-3 px-0 rounded"
+              [src]="
+                chat
+                  .getRelations()
+                  .match.getRelations()
+                  .user.getRelations()
+                  .facePhoto.getAttrs().data
+              "
+              *ngIf="
+                chat.getRelations().match.getRelations().user.getRelations()
+                  .facePhoto
+              "
+            />
+            <img
+              class="col-3 px-0 rounded"
+              [src]="'https://via.placeholder.com/150'"
+              *ngIf="
+                !chat.getRelations().match.getRelations().user.getRelations()
+                  .facePhoto
+              "
+            />
+            <div class="col-9 px-1 text-center">
+              {{
+                chat.getRelations().match.getRelations().user.getAttrs().name
+              }}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-9 px-3">
+      <chatting-room *ngIf="match_id" [match_id]="match_id"></chatting-room>
+    </div>
+  </div>
+</div>

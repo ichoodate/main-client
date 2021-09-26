@@ -1,4 +1,8 @@
-<card-container [users]="getUsers()"> </card-container>
+<div *ngFor="let cardGroup of getCardGroups()">
+  <card-group [group]="cardGroup"></card-group>
+</div>
 <div class="container d-flex justify-content-center">
-  <button class="btn btn-link">load more...</button>
+  <button class="btn btn-outline-primary" (click)="getMoreCardGroup()">
+    load more...
+  </button>
 </div>

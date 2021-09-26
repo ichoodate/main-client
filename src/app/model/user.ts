@@ -1,4 +1,6 @@
 import { Model } from 'src/app/model';
+import { FacePhoto } from 'src/app/model/face-photo';
+import { Friend } from 'src/app/model/friend';
 
 export type UserAttributes = {
   id: string;
@@ -10,7 +12,10 @@ export type UserAttributes = {
   created_at: string;
 };
 
-export type UserRelations = {};
+export type UserRelations = {
+  friend: Friend;
+  facePhoto: FacePhoto;
+};
 
 export class User extends Model<UserAttributes, UserRelations> {
   protected readonly urlPath = 'users';

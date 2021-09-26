@@ -1,4 +1,12 @@
-<card-container [users]="getUsers()"> </card-container>
+<div id="card-container-wrap" class="container-fluid">
+  <div class="row justify-content-center">
+    <div class="card-outer p-3" *ngFor="let user of users">
+      <card [user]="user"></card>
+    </div>
+  </div>
+</div>
 <div class="container d-flex justify-content-center">
-  <button class="btn btn-link">load more...</button>
+  <button class="btn btn-outline-primary" (click)="getMoreUsers()">
+    load more...
+  </button>
 </div>

@@ -1,3 +1,4 @@
+import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule, Routes } from '@angular/router';
@@ -11,6 +12,12 @@ const routes: Routes = [
     path: '',
     redirectTo: 'index',
     pathMatch: 'full',
+  },
+  {
+    path: 'chat',
+    canActivateChild: [AuthGuardService],
+    loadChildren: () =>
+      import('src/app/content/chat.module').then((m) => m.ChatContentModule),
   },
   {
     path: 'index',
@@ -130,6 +137,7 @@ const routes: Routes = [
   exports: [AppComponent],
   imports: [
     BrowserModule,
+    CommonModule,
     LayoutFooterModule,
     LayoutHeaderModule,
     RouterModule.forRoot(routes),

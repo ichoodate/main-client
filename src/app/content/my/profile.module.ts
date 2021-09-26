@@ -1,5 +1,6 @@
+import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { ActivatedRouteSnapshot, RouterModule, Routes } from '@angular/router';
 import { Observable } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
 import { UserProfileModule } from 'src/app/element/user-profile.module';
@@ -25,7 +26,7 @@ const routes: Routes = [
 @NgModule({
   declarations: [MyProfileContentComponent],
   exports: [MyProfileContentComponent],
-  imports: [UserProfileModule, RouterModule.forChild(routes)],
+  imports: [CommonModule, RouterModule.forChild(routes), UserProfileModule],
   providers: [
     {
       provide: 'keywords$$',
@@ -45,10 +46,16 @@ const routes: Routes = [
     },
     {
       provide: 'user$$',
-      useFactory: (auth: AuthService) => {
-        return () => auth.user$();
+      useFactory: (authUser$$: () => Observable<User>) => {
+        return (route: ActivatedRouteSnapshot) => authUser$$();
       },
-      deps: [AuthService],
+      deps: ['authUser$$'],
+    },
+    {
+      provide: 'authUser$$',
+      useValue: (route: ActivatedRouteSnapshot) => {
+        return AuthService.user$();
+      },
     },
   ],
 })
