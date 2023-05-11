@@ -25,7 +25,7 @@ export class AuthSignUpContentComponent {
   public signUp() {
     HttpService.api()
       .post('auth/sign-up', {
-        params: this.form.value,
+        ...this.form.value,
       })
       .subscribe((attrs: {}) => {
         this.router.navigate(['/']);
