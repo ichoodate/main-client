@@ -16,5 +16,5 @@ export class ProfilePhoto extends Model<
   ProfilePhotoAttributes,
   ProfilePhotoRelations
 > {
-  protected readonly urlPath = 'profile-photos';
+  public override readonly urlPath = 'profile-photos';
 }

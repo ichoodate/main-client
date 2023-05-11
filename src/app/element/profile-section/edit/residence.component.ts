@@ -51,7 +51,7 @@ export class ProfileSectionEditResidenceComponent
       });
   }
 
-  public static setUp$(data: Data) {
+  public static override setUp$(data: Data) {
     const countryList$ = HttpService.api()
       .get<Country[]>('keyword/countries', {
         params: {

@@ -23,7 +23,7 @@ export class ProfileSectionEditNameComponent
     this.nameCtrl.setValue(this.shared.name);
   }
 
-  public static setUp$(data: Data) {}
+  public static override setUp$(data: Data) {}
 
   public submit$() {
     return HttpService.api()

@@ -19,5 +19,5 @@ export class ProfileSectionShowHobbyComponent
     this.hobbies = this.shared.hobbies;
   }
 
-  public static setUp$(data: Data) {}
+  public static override setUp$(data: Data) {}
 }

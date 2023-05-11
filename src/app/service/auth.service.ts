@@ -23,7 +23,10 @@ export class AuthService {
     return of(AuthService.authUser);
   }
 
-  public static signIn$(credentials: { email: string; password: string }) {
+  public static signIn$(credentials: {
+    email: string | null;
+    password: string | null;
+  }) {
     return HttpService.api()
       .post<string>('auth/sign-in', credentials)
       .pipe(

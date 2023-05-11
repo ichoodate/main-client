@@ -16,5 +16,5 @@ export class Localizable extends Model<
   LocalizableAttributes,
   LocalizableRelations
 > {
-  protected readonly urlPath = 'localizables';
+  public override readonly urlPath = 'localizables';
 }

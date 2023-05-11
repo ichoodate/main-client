@@ -18,5 +18,5 @@ export type UserRelations = {
 };
 
 export class User extends Model<UserAttributes, UserRelations> {
-  protected readonly urlPath = 'users';
+  public override readonly urlPath = 'users';
 }

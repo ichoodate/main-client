@@ -18,7 +18,9 @@ export class ProfileSectionEditCareerComponent
   extends ProfileSectionEditComponent
   implements OnInit
 {
-  protected readonly careersCtrl = new FormArray([]);
+  protected readonly careersCtrl = new FormArray<FormControl<Career | null>>(
+    []
+  );
   public careerLists: Career[][] = [];
   public careers: Array<Career | null> = [];
 
@@ -32,7 +34,7 @@ export class ProfileSectionEditCareerComponent
     }
 
     this.careers.forEach((career) => {
-      (<FormArray>this.form.get('careers')).push(new FormControl(career));
+      this.careersCtrl.push(new FormControl(career));
     });
     this.careersCtrl.at(0).setValidators([Validators.required]);
   }
@@ -43,7 +45,7 @@ export class ProfileSectionEditCareerComponent
     HttpService.api()
       .get<Career[]>('keyword/careers', {
         params: {
-          parent_id: career.getAttrs().id,
+          parent_id: career ? career.getAttrs().id : 'null',
         },
       })
       .subscribe((careerList: Career[]) => {
@@ -66,7 +68,7 @@ export class ProfileSectionEditCareerComponent
       });
   }
 
-  public static setUp$(data: Data) {
+  public static override setUp$(data: Data) {
     const parentIds = data.careers.map(
       (career: Career) => career.getAttrs().id
     );
@@ -80,9 +82,9 @@ export class ProfileSectionEditCareerComponent
       });
     });
 
-    return forkJoin<Career[]>(observers).pipe(
+    return forkJoin<Career[][]>(observers).pipe(
       map((careerLists: Career[][]) => {
-        if ((<Career[]>_.last(careerLists)).length == 0) {
+        if (_.last(careerLists)?.length == 0) {
           careerLists.pop();
         }
         data.careerLists = careerLists;
@@ -93,8 +95,8 @@ export class ProfileSectionEditCareerComponent
   }
 
   public submit$() {
-    const careers = _.clone(this.careersCtrl.getRawValue());
-    let last;
+    const careers = _.clone<(Career | null)[]>(this.careersCtrl.getRawValue());
+    let last: Career | null | undefined;
 
     do {
       last = careers.pop();

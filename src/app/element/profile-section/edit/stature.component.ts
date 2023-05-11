@@ -27,7 +27,7 @@ export class ProfileSectionEditStatureComponent
     this.statureList = this.shared.statureList;
   }
 
-  public static setUp$(data: Data) {
+  public static override setUp$(data: Data) {
     return HttpService.api()
       .get<Stature[]>('keyword/statures', {})
       .pipe(

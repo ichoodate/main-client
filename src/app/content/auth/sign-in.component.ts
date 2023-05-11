@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, Validators, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { User } from 'src/app/model/user';
 import { AuthService } from 'src/app/service/auth.service';
@@ -14,8 +14,8 @@ export class AuthSignInContentComponent {
   private router: Router;
 
   public readonly form = new FormGroup({
-    email: new FormControl(''),
-    password: new FormControl(''),
+    email: new FormControl<string>('', [Validators.required]),
+    password: new FormControl<string>('', [Validators.required]),
   });
 
   constructor(route: ActivatedRoute, router: Router) {
@@ -24,7 +24,7 @@ export class AuthSignInContentComponent {
   }
 
   public signIn() {
-    AuthService.signIn$(this.form.value).subscribe((user: User) => {
+    AuthService.signIn$(this.form.getRawValue()).subscribe((user: User) => {
       if (user) {
         this.goPreviousPage();
       }

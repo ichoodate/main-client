@@ -17,5 +17,5 @@ export type ReplyRelations = {
 };
 
 export class Reply extends Model<ReplyAttributes, ReplyRelations> {
-  protected readonly urlPath = 'replies';
+  public override readonly urlPath = 'replies';
 }

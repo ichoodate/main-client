@@ -17,10 +17,10 @@ export class ProfileSectionEditWeightRangeComponent
   extends ProfileSectionEditComponent
   implements OnInit
 {
-  protected readonly weightRangeCtrl = new FormControl(undefined, [
+  protected weightRangeCtrl = new FormControl<WeightRange | null>(null, [
     Validators.required,
   ]);
-  protected readonly minCtrl = new FormControl();
+  protected minCtrl = new FormControl();
   public weightRangeList: WeightRange[] = [];
   public minList: string[] = [];
 
@@ -56,7 +56,7 @@ export class ProfileSectionEditWeightRangeComponent
       });
   }
 
-  public static setUp$(data: Data) {
+  public static override setUp$(data: Data) {
     const minList$ = HttpService.api()
       .get<WeightRange[]>('keyword/min-weight-ranges', {
         params: {
@@ -96,7 +96,7 @@ export class ProfileSectionEditWeightRangeComponent
   public submit$() {
     return HttpService.api()
       .post<WeightRange>(this.profileType + '-keyword/weight-ranges', {
-        keyword_id: this.weightRangeCtrl.value.getAttrs().id,
+        keyword_id: this.weightRangeCtrl.value?.getAttrs().id,
       })
       .pipe(
         map((career: WeightRange) => {

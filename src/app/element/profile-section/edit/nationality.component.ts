@@ -28,7 +28,7 @@ export class ProfileSectionEditNationalityComponent
     this.countryList = this.shared.countryList;
   }
 
-  public static setUp$(data: Data) {
+  public static override setUp$(data: Data) {
     return HttpService.api()
       .get<Country[]>('keyword/countries', {
         params: {

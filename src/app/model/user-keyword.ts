@@ -17,5 +17,5 @@ export class UserKeyword extends Model<
   UserKeywordAttributes,
   UserKeywordRelations
 > {
-  protected readonly urlPath = 'user-keywords';
+  public override readonly urlPath = 'user-keywords';
 }

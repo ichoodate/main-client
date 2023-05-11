@@ -11,5 +11,5 @@ export type PwdResetAttributes = {
 export type PwdResetRelations = {};
 
 export class PwdReset extends Model<PwdResetAttributes, PwdResetRelations> {
-  protected readonly urlPath = 'pwd-resets';
+  public override readonly urlPath = 'pwd-resets';
 }

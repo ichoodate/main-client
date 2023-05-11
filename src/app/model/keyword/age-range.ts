@@ -9,5 +9,5 @@ export type AgeRangeAttributes = {
 export type AgeRangeRelations = {};
 
 export class AgeRange extends Model<AgeRangeAttributes, AgeRangeRelations> {
-  protected readonly urlPath = 'keyword/age-ranges';
+  public override readonly urlPath = 'keyword/age-ranges';
 }

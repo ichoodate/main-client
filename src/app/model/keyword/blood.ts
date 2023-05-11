@@ -8,5 +8,5 @@ export type BloodAttributes = {
 export type BloodRelations = {};
 
 export class Blood extends Model<BloodAttributes, BloodRelations> {
-  protected readonly urlPath = 'keyword/bloods';
+  public override readonly urlPath = 'keyword/bloods';
 }

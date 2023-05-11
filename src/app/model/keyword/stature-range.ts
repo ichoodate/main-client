@@ -12,5 +12,5 @@ export class StatureRange extends Model<
   StatureRangeAttributes,
   StatureRangeRelations
 > {
-  protected readonly urlPath = 'keyword/stature-ranges';
+  public override readonly urlPath = 'keyword/stature-ranges';
 }

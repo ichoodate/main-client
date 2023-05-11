@@ -20,5 +20,5 @@ export class Subscription extends Model<
   SubscriptionAttributes,
   SubscriptionRelations
 > {
-  protected readonly urlPath = 'subscriptions';
+  public override readonly urlPath = 'subscriptions';
 }

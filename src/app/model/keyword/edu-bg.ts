@@ -8,5 +8,5 @@ export type EduBgAttributes = {
 export type EduBgRelations = {};
 
 export class EduBg extends Model<EduBgAttributes, EduBgRelations> {
-  protected readonly urlPath = 'keyword/education-backgrounds';
+  public override readonly urlPath = 'keyword/education-backgrounds';
 }

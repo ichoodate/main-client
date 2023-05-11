@@ -4,7 +4,7 @@ import * as _ from 'lodash';
 import { map } from 'rxjs/operators';
 import {
   Data,
-  ProfileSectionEditComponent
+  ProfileSectionEditComponent,
 } from 'src/app/element/profile-section/edit.component';
 import { Hobby } from 'src/app/model/keyword/hobby';
 import { HttpService } from 'src/app/service/http.service';
@@ -17,7 +17,7 @@ export class ProfileSectionEditHobbyComponent
   extends ProfileSectionEditComponent
   implements OnInit
 {
-  public readonly hobbiesCtrl = new FormArray([]);
+  public readonly hobbiesCtrl = new FormArray<FormControl<boolean | null>>([]);
   protected hobbies: Hobby[] = [];
   public hobbyList: Hobby[] = [];
 
@@ -34,7 +34,7 @@ export class ProfileSectionEditHobbyComponent
     });
   }
 
-  public static setUp$(data: Data) {
+  public static override setUp$(data: Data) {
     return HttpService.api()
       .get<Hobby[]>('keyword/hobbies', {})
       .pipe(
@@ -45,7 +45,7 @@ export class ProfileSectionEditHobbyComponent
   }
 
   public submit$() {
-    const hobbies = _.chain(this.form.get('hobbies')?.value)
+    const hobbies = _.chain<boolean>(this.form.get('hobbies')?.value)
       .pickBy()
       .keys()
       .map<Hobby>(((i: string) => {

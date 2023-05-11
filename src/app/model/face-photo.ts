@@ -13,5 +13,5 @@ export type FacePhotoRelations = {
 };
 
 export class FacePhoto extends Model<FacePhotoAttributes, FacePhotoRelations> {
-  protected readonly urlPath = 'face-photos';
+  public override readonly urlPath = 'face-photos';
 }

@@ -17,5 +17,5 @@ export class IdealTypeKeyword extends Model<
   IdealTypeKeywordAttributes,
   IdealTypeKeywordRelations
 > {
-  protected readonly urlPath = 'ideal-type-keywords';
+  public override readonly urlPath = 'ideal-type-keywords';
 }

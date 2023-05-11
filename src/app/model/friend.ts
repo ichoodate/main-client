@@ -17,5 +17,5 @@ export type FriendRelations = {
 };
 
 export class Friend extends Model<FriendAttributes, FriendRelations> {
-  protected readonly urlPath = 'friends';
+  public override readonly urlPath = 'friends';
 }

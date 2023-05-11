@@ -14,5 +14,5 @@ export class Nationality extends Model<
   NationalityAttributes,
   NationalityRelations
 > {
-  protected readonly urlPath = 'keyword/nationalities';
+  public override readonly urlPath = 'keyword/nationalities';
 }

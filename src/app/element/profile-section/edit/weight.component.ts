@@ -27,7 +27,7 @@ export class ProfileSectionEditWeightComponent
     this.weightList = this.shared.weightList;
   }
 
-  public static setUp$(data: Data) {
+  public static override setUp$(data: Data) {
     return HttpService.api()
       .get<Weight[]>('keyword/weights', {})
       .pipe(

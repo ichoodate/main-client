@@ -9,5 +9,5 @@ export type StatureAttributes = {
 export type StatureRelations = {};
 
 export class Stature extends Model<StatureAttributes, StatureRelations> {
-  protected readonly urlPath = 'keyword/statures';
+  public override readonly urlPath = 'keyword/statures';
 }

@@ -12,5 +12,5 @@ export type RoleRelations = {
 };
 
 export class Role extends Model<RoleAttributes, RoleRelations> {
-  protected readonly urlPath = 'roles';
+  public override readonly urlPath = 'roles';
 }

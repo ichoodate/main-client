@@ -8,5 +8,5 @@ export type ReligionAttributes = {
 export type ReligionRelations = {};
 
 export class Religion extends Model<ReligionAttributes, ReligionRelations> {
-  protected readonly urlPath = 'keyword/religions';
+  public override readonly urlPath = 'keyword/religions';
 }

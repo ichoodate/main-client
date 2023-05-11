@@ -18,5 +18,5 @@ export type CountryRelations = {
 };
 
 export class Country extends Model<CountryAttributes, CountryRelations> {
-  protected readonly urlPath = 'keyword/countries';
+  public override readonly urlPath = 'keyword/countries';
 }

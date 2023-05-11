@@ -8,5 +8,5 @@ export type WeightAttributes = {
 export type WeightRelations = {};
 
 export class Weight extends Model<WeightAttributes, WeightRelations> {
-  protected readonly urlPath = 'keyword/weights';
+  public override readonly urlPath = 'keyword/weights';
 }

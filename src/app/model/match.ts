@@ -14,5 +14,5 @@ export type MatchRelations = {
 };
 
 export class Match extends Model<MatchAttributes, MatchRelations> {
-  protected readonly urlPath = 'matches';
+  public override readonly urlPath = 'matches';
 }

@@ -12,5 +12,5 @@ export class WeightRange extends Model<
   WeightRangeAttributes,
   WeightRangeRelations
 > {
-  protected readonly urlPath = 'keyword/weight-ranges';
+  public override readonly urlPath = 'keyword/weight-ranges';
 }

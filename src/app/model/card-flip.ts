@@ -15,5 +15,5 @@ export type CardFlipRelations = {
 };
 
 export class CardFlip extends Model<CardFlipAttributes, CardFlipRelations> {
-  protected readonly urlPath = 'card-flips';
+  public override readonly urlPath = 'card-flips';
 }

@@ -8,5 +8,5 @@ export type BodyAttributes = {
 export type BodyRelations = {};
 
 export class Body extends Model<BodyAttributes, BodyRelations> {
-  protected readonly urlPath = 'keyword/bodies';
+  public override readonly urlPath = 'keyword/bodies';
 }

@@ -23,7 +23,7 @@ export class ProfileSectionShowNationalityComponent
       this.nationality && <Country>this.nationality.getRelations().country;
   }
 
-  public static setUp$(data: Data) {
+  public static override setUp$(data: Data) {
     if (data.nationality) {
       return data.nationality.load$({
         expands: 'country',

@@ -15,5 +15,5 @@ export type TicketRelations = {
 };
 
 export class Ticket extends Model<TicketAttributes, TicketRelations> {
-  protected readonly urlPath = 'tickets';
+  public override readonly urlPath = 'tickets';
 }

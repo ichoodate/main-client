@@ -19,5 +19,5 @@ export class ProfileSectionShowAgeRangeComponent
     this.ageRange = this.shared.ageRange;
   }
 
-  public static setUp$(data: Data) {}
+  public static override setUp$(data: Data) {}
 }

@@ -19,5 +19,5 @@ export class ProfileSectionShowReligionComponent
     this.religion = this.shared.religion;
   }
 
-  public static setUp$(data: Data) {}
+  public static override setUp$(data: Data) {}
 }

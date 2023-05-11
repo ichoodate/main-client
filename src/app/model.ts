@@ -61,7 +61,7 @@ export class Model<T extends ModelAttribute, R extends ModelRelations> {
 
   public load$(params: HttpParams): Observable<any> {
     return HttpService.api()
-      .get<Model<T, R>>(`${this.urlPath}/${this.attrs.id}`, {
+      .get<Model<T, R>>(`${this.urlPath}/${this.attrs['id']}`, {
         params: params,
       })
       .pipe(

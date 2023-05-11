@@ -27,7 +27,7 @@ export class ProfileSectionEditReligionComponent
     this.religionList = this.shared.religionList;
   }
 
-  public static setUp$(data: Data) {
+  public static override setUp$(data: Data) {
     return HttpService.api()
       .get<Religion[]>('keyword/religions', {})
       .pipe(

@@ -10,5 +10,5 @@ export type CareerAttributes = {
 export type CareerRelations = {};
 
 export class Career extends Model<CareerAttributes, CareerRelations> {
-  protected readonly urlPath = 'keyword/careers';
+  public override readonly urlPath = 'keyword/careers';
 }

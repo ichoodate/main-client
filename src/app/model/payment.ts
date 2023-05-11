@@ -16,5 +16,5 @@ export type PaymentRelations = {
 };
 
 export class Payment extends Model<PaymentAttributes, PaymentRelations> {
-  protected readonly urlPath = 'payments';
+  public override readonly urlPath = 'payments';
 }

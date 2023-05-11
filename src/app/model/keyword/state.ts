@@ -12,5 +12,5 @@ export type StateRelations = {
 };
 
 export class State extends Model<StateAttributes, StateRelations> {
-  protected readonly urlPath = 'keyword/states';
+  public override readonly urlPath = 'keyword/states';
 }

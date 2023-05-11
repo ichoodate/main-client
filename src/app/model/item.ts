@@ -13,5 +13,5 @@ export type ItemAttributes = {
 export type ItemRelations = {};
 
 export class Item extends Model<ItemAttributes, ItemRelations> {
-  protected readonly urlPath = 'items';
+  public override readonly urlPath = 'items';
 }

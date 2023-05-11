@@ -14,5 +14,5 @@ export type BalanceRelations = {
 };
 
 export class Balance extends Model<BalanceAttributes, BalanceRelations> {
-  protected readonly urlPath = 'balances';
+  public override readonly urlPath = 'balances';
 }

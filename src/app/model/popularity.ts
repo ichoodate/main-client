@@ -18,5 +18,5 @@ export class Popularity extends Model<
   PopularityAttributes,
   PopularityRelations
 > {
-  protected readonly urlPath = 'popularities';
+  public override readonly urlPath = 'popularities';
 }

@@ -8,5 +8,5 @@ export type DrinkAttributes = {
 export type DrinkRelations = {};
 
 export class Drink extends Model<DrinkAttributes, DrinkRelations> {
-  protected readonly urlPath = 'keyword/drinks';
+  public override readonly urlPath = 'keyword/drinks';
 }

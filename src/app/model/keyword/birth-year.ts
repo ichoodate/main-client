@@ -8,5 +8,5 @@ export type BirthYearAttributes = {
 export type BirthYearRelations = {};
 
 export class BirthYear extends Model<BirthYearAttributes, BirthYearRelations> {
-  protected readonly urlPath = 'keyword/birth-years';
+  public override readonly urlPath = 'keyword/birth-years';
 }

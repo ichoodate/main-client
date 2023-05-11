@@ -18,5 +18,5 @@ export class ProfileSectionShowNameComponent
     this.name = this.shared.name;
   }
 
-  public static setUp$(data: Data) {}
+  public static override setUp$(data: Data) {}
 }

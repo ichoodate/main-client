@@ -20,5 +20,5 @@ export class Notification extends Model<
   NotificationAttributes,
   NotificationRelations
 > {
-  protected readonly urlPath = 'notifications';
+  public override readonly urlPath = 'notifications';
 }

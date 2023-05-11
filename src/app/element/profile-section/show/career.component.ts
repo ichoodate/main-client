@@ -36,7 +36,7 @@ export class ProfileSectionShowCareerComponent
       );
   }
 
-  public static setUp$(data: Data) {
+  public static override setUp$(data: Data) {
     const careers = data.career ? [data.career] : [];
 
     return this.getCareers$(...careers).pipe(

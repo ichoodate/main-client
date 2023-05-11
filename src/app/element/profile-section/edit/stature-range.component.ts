@@ -17,9 +17,10 @@ export class ProfileSectionEditStatureRangeComponent
   extends ProfileSectionEditComponent
   implements OnInit
 {
-  protected readonly statureRangeCtrl = new FormControl(undefined, [
-    Validators.required,
-  ]);
+  protected readonly statureRangeCtrl = new FormControl<StatureRange | null>(
+    null,
+    [Validators.required]
+  );
   protected readonly minCtrl = new FormControl();
   public statureRangeList: StatureRange[] = [];
   public minList: string[] = [];
@@ -56,7 +57,7 @@ export class ProfileSectionEditStatureRangeComponent
       });
   }
 
-  public static setUp$(data: Data) {
+  public static override setUp$(data: Data) {
     const minList$ = HttpService.api()
       .get<StatureRange[]>('keyword/min-stature-ranges', {
         params: {
@@ -96,7 +97,7 @@ export class ProfileSectionEditStatureRangeComponent
   public submit$() {
     return HttpService.api()
       .post<StatureRange>(this.profileType + '-keyword/stature-ranges', {
-        keyword_id: this.statureRangeCtrl.value.getAttrs().id,
+        keyword_id: this.statureRangeCtrl.value?.getAttrs().id,
       })
       .pipe(
         map((career: StatureRange) => {

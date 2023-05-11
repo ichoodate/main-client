@@ -12,5 +12,5 @@ export type InvoiceRelations = {
 };
 
 export class Invoice extends Model<InvoiceAttributes, InvoiceRelations> {
-  protected readonly urlPath = 'invoices';
+  public override readonly urlPath = 'invoices';
 }

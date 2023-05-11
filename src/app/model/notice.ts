@@ -12,5 +12,5 @@ export type NoticeAttributes = {
 export type NoticeRelations = {};
 
 export class Notice extends Model<NoticeAttributes, NoticeRelations> {
-  protected readonly urlPath = 'notices';
+  public override readonly urlPath = 'notices';
 }

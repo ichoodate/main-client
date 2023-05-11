@@ -17,9 +17,10 @@ export class ProfileSectionEditAgeRangeComponent
   extends ProfileSectionEditComponent
   implements OnInit
 {
-  protected readonly ageRangeCtrl = new FormControl(undefined, [
-    Validators.required,
-  ]);
+  protected readonly ageRangeCtrl = new FormControl<AgeRange | undefined>(
+    undefined,
+    [Validators.required]
+  );
   protected readonly minCtrl = new FormControl();
   public ageRangeList: AgeRange[] = [];
   public minList: string[] = [];
@@ -55,7 +56,7 @@ export class ProfileSectionEditAgeRangeComponent
       });
   }
 
-  public static setUp$(data: Data) {
+  public static override setUp$(data: Data) {
     const minList$ = HttpService.api()
       .get<AgeRange[]>('keyword/min-age-ranges', {
         params: {
@@ -93,7 +94,7 @@ export class ProfileSectionEditAgeRangeComponent
   public submit$() {
     return HttpService.api()
       .post<AgeRange>(this.profileType + '-keyword/age-ranges', {
-        keyword_id: this.ageRangeCtrl.value.getAttrs().id,
+        keyword_id: this.ageRangeCtrl.value?.getAttrs().id,
       })
       .pipe(
         map((career: AgeRange) => {

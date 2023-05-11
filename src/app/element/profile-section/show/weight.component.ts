@@ -19,5 +19,5 @@ export class ProfileSectionShowWeightComponent
     this.weight = this.shared.weight;
   }
 
-  public static setUp$(data: Data) {}
+  public static override setUp$(data: Data) {}
 }

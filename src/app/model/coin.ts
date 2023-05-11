@@ -19,5 +19,5 @@ export type CoinRelations = {
 };
 
 export class Coin extends Model<CoinAttributes, CoinRelations> {
-  protected readonly urlPath = 'coins';
+  public override readonly urlPath = 'coins';
 }

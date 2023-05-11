@@ -19,5 +19,5 @@ export class ProfileSectionShowStatureRangeComponent
     this.statureRange = this.shared.statureRange;
   }
 
-  public static setUp$(data: Data) {}
+  public static override setUp$(data: Data) {}
 }

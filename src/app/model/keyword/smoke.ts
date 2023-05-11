@@ -8,5 +8,5 @@ export type SmokeAttributes = {
 export type SmokeRelations = {};
 
 export class Smoke extends Model<SmokeAttributes, SmokeRelations> {
-  protected readonly urlPath = 'keyword/smokes';
+  public override readonly urlPath = 'keyword/smokes';
 }

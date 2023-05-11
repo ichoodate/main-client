@@ -16,5 +16,5 @@ export class RelatedKeyword extends Model<
   RelatedKeywordAttributes,
   RelatedKeywordRelations
 > {
-  protected readonly urlPath = 'related-keywords';
+  public override readonly urlPath = 'related-keywords';
 }

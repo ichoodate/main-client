@@ -8,5 +8,5 @@ export type LanguageAttributes = {
 export type LanguageRelations = {};
 
 export class Language extends Model<LanguageAttributes, LanguageRelations> {
-  protected readonly urlPath = 'keyword/languages';
+  public override readonly urlPath = 'keyword/languages';
 }

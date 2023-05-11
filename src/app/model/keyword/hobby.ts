@@ -8,5 +8,5 @@ export type HobbyAttributes = {
 export type HobbyRelations = {};
 
 export class Hobby extends Model<HobbyAttributes, HobbyRelations> {
-  protected readonly urlPath = 'keyword/hobbies';
+  public override readonly urlPath = 'keyword/hobbies';
 }

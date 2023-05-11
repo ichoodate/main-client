@@ -21,5 +21,5 @@ export type CardRelations = {
 };
 
 export class Card extends Model<CardAttributes, CardRelations> {
-  protected readonly urlPath = 'cards';
+  public override readonly urlPath = 'cards';
 }

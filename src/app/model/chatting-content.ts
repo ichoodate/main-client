@@ -19,5 +19,5 @@ export class ChattingContent extends Model<
   ChattingContentAttributes,
   ChattingContentRelations
 > {
-  protected readonly urlPath = 'chatting-contents';
+  public override readonly urlPath = 'chatting-contents';
 }

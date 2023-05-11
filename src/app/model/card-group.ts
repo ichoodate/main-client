@@ -15,5 +15,5 @@ export type CardGroupRelations = {
 };
 
 export class CardGroup extends Model<CardGroupAttributes, CardGroupRelations> {
-  protected readonly urlPath = 'card-groups';
+  public override readonly urlPath = 'card-groups';
 }

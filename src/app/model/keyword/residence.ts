@@ -13,5 +13,5 @@ export type ResidenceRelations = {
 };
 
 export class Residence extends Model<ResidenceAttributes, ResidenceRelations> {
-  protected readonly urlPath = 'keyword/residences';
+  public override readonly urlPath = 'keyword/residences';
 }

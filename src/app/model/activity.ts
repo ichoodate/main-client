@@ -16,5 +16,5 @@ export type ActivityRelations = {
 };
 
 export class Activity extends Model<ActivityAttributes, ActivityRelations> {
-  protected readonly urlPath = 'activities';
+  public override readonly urlPath = 'activities';
 }

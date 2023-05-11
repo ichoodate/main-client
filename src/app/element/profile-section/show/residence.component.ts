@@ -55,7 +55,7 @@ export class ProfileSectionShowResidenceComponent
       );
   }
 
-  public static setUp$(data: Data) {
+  public static override setUp$(data: Data) {
     const residences = data.residence ? [data.residence] : [];
 
     return this.getResidences$(...residences).pipe(
