@@ -34,7 +34,7 @@ export class AuthService {
           localStorage.setItem('ichoodate-auth-token', result);
           return HttpService.api().get<User>('auth/user', {
             params: {
-              expands: ['facePhoto'],
+              expands: 'facePhoto',
             },
           });
         }),

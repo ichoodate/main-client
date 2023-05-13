@@ -73,7 +73,7 @@ export class ChatContentComponent {
   public getMoreChattings(type: 'prev' | 'next') {
     const params: Params = {
       type: 'friend',
-      expands: ['match.user'],
+      expands: 'match.user',
       order_by: 'created_at ' + (type == 'prev' ? 'desc' : 'asc'),
       group_by: 'match_id',
     };

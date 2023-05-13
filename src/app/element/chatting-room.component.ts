@@ -75,7 +75,7 @@ export class ChattingRoomComponent {
 
   public getMoreChattings(type: 'prev' | 'next') {
     const params: Params = {
-      expands: ['match.user, writer'],
+      expands: 'match.user, writer',
       match_id: this.match_id,
       order_by: 'created_at ' + (type == 'prev' ? 'desc' : 'asc'),
     };
@@ -121,7 +121,7 @@ export class ChattingRoomComponent {
               'chatting-contents/' + chatting.getAttrs().id,
               {
                 params: {
-                  expands: ['match.user, writer'],
+                  expands: 'match.user, writer',
                 },
               }
             );
